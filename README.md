@@ -1,24 +1,24 @@
 # Golden_Sun_Remix 
 
-## RPG Game in solo 
+**RPG Game in solo**
 
 is a game in memory of a good and great game of my childhood time, I want to create a game who got some easter eggs but still is independent.
 
-### Rules
+## Rules
 
-. The player move with ZQSD
-. The player can interract with PNJs
-. The player sometimes enter in combat and can choose an action like attack, magic, run.
-. The player got a principal quest 
+. The player move with ZQSD  
+. The player can interract with PNJs    
+. The player sometimes enter in combat and can choose an action like attack, magic, run.  
+. The player got a principal quest   
 
-#### CODE & API 
+## CODE & API 
 
 This game is developed in JavaScript using #RPG JS
 
-##### DATAS
+## DATAS
 
 windows-size screen 
 
-*Opening* 
+**Opening** 
 
 one house, one PNJ, one quest 
