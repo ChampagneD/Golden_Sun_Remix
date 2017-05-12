@@ -2,7 +2,7 @@
 
 ### RPG Web Game in solo
 
-its a game in memory of a good and great game from my childhood time, I want to create a game who got some easter eggs but still is independent.
+its a game in memory of a good and great game from my childhood time, I want to create a game who got some easter eggs but is still independent.
 
 In this game Reiner(the player) want to live a great life of adventure with misadventure and joy, you will grow stronger and stronger with your childhood friends, you will make friends while you travel this fantastic world.
 
