@@ -8,8 +8,8 @@ In this game Reiner(the player) want to live a great life of adventure with misa
 
 ## Rules
 
-* The player move with ZQSD  
-* The player can interract with PNJs    
+* The player move with ZQSD and interact with space and E
+* The player can interract with PNJs and objects 
 * The player sometimes enter in combat when walking outside citys and can choose an action like attack, magic, run.  
 * While the player travel he will encounter ennemies and got different quest who will lead him to save the world
 
