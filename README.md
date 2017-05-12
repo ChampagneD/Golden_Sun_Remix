@@ -1,8 +1,8 @@
 # Golden_Sun_Remix 
 
-### RPG Game in solo
+### RPG Web Game in solo
 
-is a game in memory of a good and great game of my childhood time, I want to create a game who got some easter eggs but still is independent.
+its a game in memory of a good and great game from my childhood time, I want to create a game who got some easter eggs but still is independent.
 
 ## Rules
 
