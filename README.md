@@ -4,7 +4,9 @@
 
 its a game in memory of a good and great game from my childhood time, I want to create a game who got some easter eggs but is still independent.
 
-In this game Reiner(the player) want to live a great life of adventure with misadventure and joy, you will grow stronger and stronger with your childhood friends, you will make friends while you travel this fantastic world.
+In this game Reiner(the player) want to live a great life of adventure with misadventure and joy, you will grow stronger and stronger with your childhood friends and with the power of Psynergy, you will make friends while you travel this fantastic world.
+
+You will earn Djinns as you explore the world, Djinns are elemental monsters that empower the player and can be used against enemies.
 
 ## Rules
 
@@ -15,14 +17,20 @@ In this game Reiner(the player) want to live a great life of adventure with misa
 
 ## CODE & API 
 
-This game is developed in **JavaScript** using **RPG JS**
+This game is developed in **JavaScript** using **Phaser**
 
 ## DATAS
 
-windows-size screen 
+You can explore villages and a whole world 
 
-#### Opening
+So basically, something like this for the villages :
 
-A village and PNJs
+![alt text](http://img2.game-oldies.com/sites/default/files/snaps/nintendo-game-boy-advance/golden-sun-usa-europe.png)
 
+And like this for the world map : ![alt text](http://www.vgmaps.com/Atlas/GBA/GoldenSun-World.png)
 
+Of course I don't have the time and experience to do something this big, but I will do my best
+
+For the Djinns I will try to find something from the original references, something like this :
+
+![alt text](http://vignette4.wikia.nocookie.net/goldensun/images/0/0a/Djinn.jpg/revision/latest?cb=20090129020851)

@@ -1,0 +1,128 @@
+{
+    "assets": {
+        "map_tileset": {"type": "image", "source": "assets/images/open_tileset.png"},
+        "enemy_spawner_image": {"type": "image", "source": "assets/images/enemy_spawner.png"},
+        "male_fighter_spritesheet": {"type": "spritesheet", "source": "assets/images/characters/fighter_m.png", "frame_width": 24, "frame_height": 32},
+        
+        "level_tilemap": {"type": "tilemap", "source": "assets/maps/map1.json"}
+    },
+    "groups": [
+        "items",
+        "players",
+        "enemy_spawners"
+    ],
+    "map": {
+        "key": "level_tilemap",
+        "tilesets": ["map_tileset", "male_fighter_spritesheet"]
+    },
+    "enemy_encounters": [
+        {"probability": 0.3,
+         "enemy_data": {
+            "lizard1": {
+                "type": "enemy_unit",
+                "position": {"x": 100, "y": 100},
+                "properties": {
+                    "texture": "lizard_spritesheet",
+                    "group": "enemy_units",
+                    "stats": {
+                        "attack": 30,
+                        "defense": 10,
+                        "health": 50,
+                        "speed": 15
+                    }
+                }
+            }
+         },
+         "reward": {
+            "experience": 100,
+             "items": [{"type": "potion", "properties": {"group": "items", "health_power": 50}}]
+         }
+        },
+        {"probability": 0.5,
+         "enemy_data": {
+            "bat1": {
+                "type": "enemy_unit",
+                "position": {"x": 100, "y": 90},
+                "properties": {
+                    "texture": "bat_spritesheet",
+                    "group": "enemy_units",
+                    "stats": {
+                        "attack": 10,
+                        "defense": 1,
+                        "health": 30,
+                        "speed": 20
+                    }
+                }
+            },
+            "bat2": {
+                "type": "enemy_unit",
+                "position": {"x": 100, "y": 170},
+                "properties": {
+                    "texture": "bat_spritesheet",
+                    "group": "enemy_units",
+                    "stats": {
+                        "attack": 10,
+                        "defense": 1,
+                        "health": 30,
+                        "speed": 20
+                    }
+                }
+            }
+         },
+         "reward": {
+            "experience": 100,
+             "items": [{"type": "potion", "properties": {"group": "items", "health_power": 50}}]
+         }
+        },
+        {"probability": 1.0,
+         "enemy_data": {
+            "scorpion1": {
+                "type": "enemy_unit",
+                "position": {"x": 100, "y": 50},
+                "properties": {
+                    "texture": "scorpion_spritesheet",
+                    "group": "enemy_units",
+                    "stats": {
+                        "attack": 15,
+                        "defense": 1,
+                        "health": 20,
+                        "speed": 10
+                    }
+                }
+            },
+            "scorpion2": {
+                "type": "enemy_unit",
+                "position": {"x": 100, "y": 100},
+                "properties": {
+                    "texture": "scorpion_spritesheet",
+                    "group": "enemy_units",
+                    "stats": {
+                        "attack": 15,
+                        "defense": 1,
+                        "health": 20,
+                        "speed": 10
+                    }
+                }
+            },
+            "scorpion3": {
+                "type": "enemy_unit",
+                "position": {"x": 100, "y": 150},
+                "properties": {
+                    "texture": "scorpion_spritesheet",
+                    "group": "enemy_units",
+                    "stats": {
+                        "attack": 15,
+                        "defense": 1,
+                        "health": 20,
+                        "speed": 10
+                    }
+                }
+            }
+         },
+         "reward": {
+            "experience": 100,
+             "items": [{"type": "potion", "properties": {"group": "items", "health_power": 50}}]
+         }
+        }
+    ]
+}

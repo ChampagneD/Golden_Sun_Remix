@@ -1,0 +1,61 @@
+{
+    "assets": {
+        "rectangle_image": {"type": "image", "source": "assets/images/rectangle.png"},
+        "grass_tile_image": {"type": "image", "source": "assets/images/grass_tile.png"},
+        
+        "male_fighter_spritesheet": {"type": "spritesheet", "source": "assets/images/characters/fighter_m.png", "frame_width": 24, "frame_height": 32},
+        "female_mage_spritesheet": {"type": "spritesheet", "source": "assets/images/characters/mage_f.png", "frame_width": 24, "frame_height": 32},
+        "female_ranger_spritesheet": {"type": "spritesheet", "source": "assets/images/characters/ranger_f.png", "frame_width": 24, "frame_height": 32},
+        
+        "bat_spritesheet": {"type": "spritesheet", "source": "assets/images/monsters/bat.png", "frame_width": 128, "frame_height": 128},
+        "scorpion_spritesheet": {"type": "spritesheet", "source": "assets/images/monsters/scorpion.png", "frame_width": 64, "frame_height": 64},
+        "lizard_spritesheet": {"type": "spritesheet", "source": "assets/images/monsters/stygian_lizard.png", "frame_width": 192, "frame_height": 192}
+    },
+    "groups": [
+        "items",
+        "attacks",
+        "background",
+        "player_units",
+        "enemy_units",
+        "hud"
+    ],
+    "prefabs": {
+        "background": {
+            "type": "background",
+            "position": {"x": 0, "y": 0},
+            "properties": {
+                "texture": "grass_tile_image",
+                "group": "background",
+                "width": 320,
+                "height": 320
+            }
+        },
+        "enemy_rectangle": {
+            "type": "rectangle",
+            "position": {"x": 0, "y": 200},
+            "properties": {
+                "texture": "rectangle_image",
+                "group": "hud",
+                "scale": {"x": 0.3, "y": 1}
+            }
+        },
+        "action_rectangle": {
+            "type": "rectangle",
+            "position": {"x": 96, "y": 200},
+            "properties": {
+                "texture": "rectangle_image",
+                "group": "hud",
+                "scale": {"x": 0.3, "y": 1}
+            }
+        },
+        "player_rectangle": {
+            "type": "rectangle",
+            "position": {"x": 192, "y": 200},
+            "properties": {
+                "texture": "rectangle_image",
+                "group": "hud",
+                "scale": {"x": 0.4, "y": 1}
+            }
+        }        
+    }
+}
