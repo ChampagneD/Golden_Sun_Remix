@@ -4,9 +4,11 @@
 
 its a game in memory of a good and great game from my childhood time, I want to create a game who got some easter eggs but is still independent.
 
-In this game Reiner(the player) want to live a great life of adventure with misadventure and joy, you will grow stronger and stronger with your childhood friends and with the power of Psynergy, you will make friends while you travel this fantastic world.
+It takes place in **Weyard** an enormous world filled with magic and creatures.
 
-You will earn Djinns as you explore the world, Djinns are elemental monsters that empower the player and can be used against enemies.
+>In this game Reiner(the player) want to live a great life of adventure with misadventures and joys, unfortunately Reiner and his friend will be forced to, an evil organization plan to run the world by reaslising Djinns in Weyard, they will try to asserve Djinns so they can use their power to rule the world of Weyard....You and your friend will do all you can to save the world from great destruction....grow stronger with the help of Djinns, learn new Psynergy spell, make friends....and **GO** save the world.
+
+
 
 ## Rules
 
@@ -30,6 +32,8 @@ So basically, something like this for the villages :
 And like this for the world map : ![alt text](http://www.vgmaps.com/Atlas/GBA/GoldenSun-World.png)
 
 Of course I don't have the time and experience to do something this big, but I will do my best
+
+You will earn Djinns as you explore the world, Djinns are elemental monsters that empower the player and can be used against enemies.
 
 For the Djinns I will try to find something from the original references, something like this :
 
