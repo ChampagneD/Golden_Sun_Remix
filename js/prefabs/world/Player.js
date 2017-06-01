@@ -19,6 +19,17 @@ RPG.Player = function (game_state, name, position, properties) {
     this.body.setSize(16, 16, 0, 8);
     this.body.collideWorldBounds = true;
 
+    this.player_tile_pos = {};
+
+    this.player_previous_tile_pos = {
+        x: null,
+        y: null
+    };
+
+    this.spawn_chance;
+    this.encounter_index;
+    this.enemy_encounter;
+
     this.cursors = this.game_state.game.input.keyboard.createCursorKeys();
 };
 
@@ -29,6 +40,8 @@ RPG.Player.prototype.update = function () {
     "use strict";
     this.game_state.game.physics.arcade.collide(this, this.game_state.layers.collision_back);
     this.game_state.game.physics.arcade.collide(this, this.game_state.layers.collision_front);
+
+    this.battleProbability();
     
     if (this.cursors.left.isDown && this.body.velocity.x <= 0) {
         // move left
@@ -67,4 +80,35 @@ RPG.Player.prototype.update = function () {
         this.animations.stop();
         this.frame = this.stopped_frames[this.body.facing];
     }
+};
+
+RPG.Player.prototype.battleProbability = function(){
+    "use strict";
+
+    if ((this.player_tile_pos.x != this.player_previous_tile_pos.x) || (this.player_tile_pos.y != this.player_previous_tile_pos.y)) {
+        this.player_previous_tile_pos.x = this.player_tile_pos.x;
+        this.player_previous_tile_pos.y = this.player_tile_pos.y;
+
+        this.spawn_chance = this.game_state.game.rnd.frac();
+        console.log(this.spawn_chance);
+        if (this.spawn_chance <= 0.03) {
+            this.spawn_chance = this.game_state.game.rnd.frac();
+            // check if the enemy spawn probability is less than the generated random number for each spawn
+            for (this.encounter_index = 0; this.encounter_index < this.game_state.level_data.enemy_encounters.length; this.encounter_index += 1) {
+                this.enemy_encounter = this.game_state.level_data.enemy_encounters[this.encounter_index];
+                if (this.spawn_chance <= this.enemy_encounter.probability) {
+                    // save current player position for later
+                    this.game_state.player_position = this.game_state.prefabs.player.position;
+                    // call battle state
+                    this.game_state.game.state.start("BootState", false, false, "assets/levels/battle.json", "BattleState", {encounter: this.enemy_encounter, party_data: this.game_state.party_data, inventory: this.game_state.inventory});
+                    break;
+                }
+            }
+        }
+    }
+
+    this.player_tile_pos = this.game_state.layers.background_back.getTileXY(this.game_state.prefabs.player.position.x, 
+                                                                            this.game_state.prefabs.player.position.y, this.player_tile_pos);
+
+
 };

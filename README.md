@@ -8,8 +8,6 @@ It takes place in **Weyard** an enormous world filled with magic and creatures.
 
 >In this game Reiner(the player) want to live a great life of adventure with misadventures and joys, unfortunately Reiner and his friend will be forced to, an evil organization plan to run the world by reaslising Djinns in Weyard, they will try to asserve Djinns so they can use their power to rule the world of Weyard....You and your friend will do all you can to save the world from great destruction....grow stronger with the help of Djinns, learn new Psynergy spell, make friends....and **GO** save the world.
 
-
-
 ## Rules
 
 * The player move with ZQSD and interact with space and E
