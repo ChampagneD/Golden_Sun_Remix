@@ -12,7 +12,9 @@ RPG.Attack.prototype.constructor = RPG.Attack;
 
 RPG.Attack.prototype.show_message = function (target, damage) {
     "use strict";
+
     var action_message_position, action_message_text, attack_message;
+
     // show attack message
     action_message_position = new Phaser.Point(this.game_state.game.world.width / 2, this.game_state.game.world.height * 0.1);
     action_message_text = this.owner.name + " attacks " + target.name + " with " + damage + " damage";

@@ -29,6 +29,8 @@ RPG.BattleState.prototype.init = function (level_data, extra_parameters) {
     this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
     this.scale.pageAlignHorizontally = true;
     this.scale.pageAlignVertically = true;
+
+    this.i = 0;
 };
 
 RPG.BattleState.prototype.preload = function () {
@@ -113,13 +115,13 @@ RPG.BattleState.prototype.init_hud = function () {
     var unit_index, player_unit_health;
     
     // show player actions
-    this.show_player_actions({x: 106, y: 210});
+    this.show_player_actions({x: 165, y: 210});
     
     // show player units
-    this.show_units("player_units", {x: 202, y: 210}, RPG.PlayerMenuItem.prototype.constructor);
+    this.show_units("player_units", {x: 250, y: 210}, RPG.PlayerMenuItem.prototype.constructor);
     
     // show enemy units
-    this.show_units("enemy_units", {x: 10, y: 210}, RPG.EnemyMenuItem.prototype.constructor);
+    this.show_units("enemy_units", {x: 5, y: 210}, RPG.EnemyMenuItem.prototype.constructor);
     
     // create items menu
     this.prefabs.inventory.create_menu({x: 106, y: 210});
@@ -185,6 +187,10 @@ RPG.BattleState.prototype.next_turn = function () {
 RPG.BattleState.prototype.game_over = function () {
     "use strict";
     // go back to WorldState restarting the player position
+    this.damageFighter = null;
+    this.damageMage = null;
+    this.damageRanger = null;
+
     this.game.state.start("BootState", true, false, "assets/levels/level1.json", "WorldState", {restart_position: true});
 };
 
@@ -207,5 +213,5 @@ RPG.BattleState.prototype.end_battle = function () {
     }, this);
     
     // go back to WorldState with the current party data
-    this.game.state.start("BootState", true, false, "assets/levels/level1.json", "WorldState", {party_data: this.party_data, inventory: this.prefabs.inventory});
+    this.game.state.start("BootState", true, true, "assets/levels/level1.json", "WorldState", {party_data: this.party_data, inventory: this.prefabs.inventory});
 };

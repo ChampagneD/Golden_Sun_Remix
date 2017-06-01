@@ -3,7 +3,7 @@ var RPG = RPG || {};
 RPG.ShowStat = function (game_state, name, position, properties) {
     "use strict";
     RPG.TextPrefab.call(this, game_state, name, position, properties);
-    
+
     this.prefab = this.game_state.prefabs[properties.prefab];
     this.stat = properties.stat;
 };

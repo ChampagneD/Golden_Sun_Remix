@@ -19,16 +19,22 @@ RPG.Player = function (game_state, name, position, properties) {
     this.body.setSize(16, 16, 0, 8);
     this.body.collideWorldBounds = true;
 
-    this.player_tile_pos = {};
-
-    this.player_previous_tile_pos = {
+    this.player_tile_pos = {
         x: null,
         y: null
+    };
+
+    this.game_state.layers.background_back.getTileXY(this.game_state.prefabs.player.position.x, this.game_state.prefabs.player.position.y, this.player_tile_pos);
+
+    this.player_previous_tile_pos = {
+        x: this.player_tile_pos.x,
+        y: this.player_tile_pos.y
     };
 
     this.spawn_chance;
     this.encounter_index;
     this.enemy_encounter;
+
 
     this.cursors = this.game_state.game.input.keyboard.createCursorKeys();
 };
@@ -90,8 +96,7 @@ RPG.Player.prototype.battleProbability = function(){
         this.player_previous_tile_pos.y = this.player_tile_pos.y;
 
         this.spawn_chance = this.game_state.game.rnd.frac();
-        console.log(this.spawn_chance);
-        if (this.spawn_chance <= 0.03) {
+        if (this.spawn_chance <= 1) {
             this.spawn_chance = this.game_state.game.rnd.frac();
             // check if the enemy spawn probability is less than the generated random number for each spawn
             for (this.encounter_index = 0; this.encounter_index < this.game_state.level_data.enemy_encounters.length; this.encounter_index += 1) {

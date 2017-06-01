@@ -36,25 +36,34 @@
             "properties": {
                 "texture": "rectangle_image",
                 "group": "hud",
-                "scale": {"x": 0.3, "y": 1}
+                "scale": {"x": 0.22, "y": 1}
             }
         },
         "action_rectangle": {
             "type": "rectangle",
-            "position": {"x": 96, "y": 200},
+            "position": {"x": 71.5, "y": 200},
             "properties": {
                 "texture": "rectangle_image",
                 "group": "hud",
-                "scale": {"x": 0.3, "y": 1}
+                "scale": {"x": 0.25, "y": 1}
+            }
+        },
+        "skill_rectangle": {
+            "type": "rectangle",
+            "position": {"x": 152, "y": 200},
+            "properties": {
+                "texture": "rectangle_image",
+                "group": "hud",
+                "scale": {"x": 0.22, "y": 1}
             }
         },
         "player_rectangle": {
             "type": "rectangle",
-            "position": {"x": 192, "y": 200},
+            "position": {"x": 223, "y": 200},
             "properties": {
                 "texture": "rectangle_image",
                 "group": "hud",
-                "scale": {"x": 0.4, "y": 1}
+                "scale": {"x": 0.3, "y": 1}
             }
         }        
     }

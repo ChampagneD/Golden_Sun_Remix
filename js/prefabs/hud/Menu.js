@@ -38,6 +38,7 @@ RPG.Menu.prototype.process_input = function (event) {
 
 RPG.Menu.prototype.move_selection = function (item_index) {
     "use strict";
+
     this.menu_items[this.current_item_index].selection_out();
     this.current_item_index = item_index;
     this.menu_items[this.current_item_index].selection_over();
