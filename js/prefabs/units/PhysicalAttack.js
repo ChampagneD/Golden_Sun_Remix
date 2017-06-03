@@ -17,6 +17,7 @@ RPG.PhysicalAttack.prototype.hit = function (target) {
     // calculate damage
     damage = Math.max(0, Math.round((attack_multiplier * this.owner.stats.attack) - (defense_multiplier * target.stats.defense)));
     
+    //calculate the percent of hp the player have
     if (!this.game_state.damageFighter) this.game_state.damageFighter = 0;
 
     if (!this.game_state.damageMage) this.game_state.damageMage = 0;

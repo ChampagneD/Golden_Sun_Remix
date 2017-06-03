@@ -14,4 +14,39 @@ RPG.Potion.prototype.use = function (target) {
     "use strict";
     RPG.Item.prototype.use.call(this);
     target.stats.health += this.health_power;
+
+    //The player health increase
+    switch(target.name) {
+        case "fighter":
+            this.game_state.damageFighter -= this.health_power;
+            break;
+
+        case "mage":
+            this.game_state.damageMage -= this.health_power;
+            break;
+
+        case "ranger":
+            this.game_state.damageRanger -= this.health_power;
+            break;
+    }
+
+    switch(target.name) {
+        case "fighter":
+            this.damageFighter = (this.game_state.damageFighter * 100) / this.game_state.PlayerMenuItem0.healthMax;
+            this.damageFighter = 100 - this.damageFighter;
+            this.game_state.PlayerMenuItem0.player_unit_health.setPercent(this.damageFighter); 
+            break;
+
+        case "mage":
+            this.damageMage = (this.game_state.damageMage * 100) / this.game_state.PlayerMenuItem1.healthMax;
+            this.damageMage = 100 - this.damageMage;
+            this.game_state.PlayerMenuItem1.player_unit_health.setPercent(this.damageMage); 
+            break;
+
+        case "ranger":
+            this.damageRanger = (this.game_state.damageRanger * 100) / this.game_state.PlayerMenuItem2.healthMax;
+            this.damageRanger = 100 - this.damageRanger;
+            this.game_state.PlayerMenuItem2.player_unit_health.setPercent(this.damageRanger);
+            break;
+    }
 };

@@ -8,8 +8,6 @@ RPG.PlayerMenuItem = function (game_state, name, position, properties) {
         this.game_state["PlayerMenuItem"+this.game_state.i] = this;
         this.game_state.i++;
     }
-
-    console.log(this);
         
     this.prefab = this.game_state.prefabs[properties.text];
 

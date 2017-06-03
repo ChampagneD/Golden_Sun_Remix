@@ -3,7 +3,7 @@ var RPG = RPG || {};
 RPG.MagicAttack = function (game_state, name, position, properties) {
     "use strict";
     RPG.Attack.call(this, game_state, name, position, properties);
-    
+   
     this.mana_cost = properties.mana_cost;
 };
 
@@ -25,7 +25,7 @@ RPG.MagicAttack.prototype.hit = function (target) {
 
     if (!this.game_state.damageRanger) this.game_state.damageRanger = 0;
 
-    switch(target.name) {
+    switch(this.game_state.current_unit.name) {
         case "fighter":
             this.game_state.damageFighter += damage;
             break;
@@ -44,6 +44,24 @@ RPG.MagicAttack.prototype.hit = function (target) {
     
     // reduce the unit mana
     this.game_state.current_unit.stats.mana -= this.mana_cost;
+
+    //Set the percentage of mana of the player 
+    switch(this.game_state.current_unit.name) {
+        case "fighter":
+            this.manaFighter = (this.game_state.current_unit.stats.mana * 100) / this.game_state.PlayerMenuItem0.manaMax;
+            this.game_state.PlayerMenuItem0.player_unit_mana.setPercent(this.manaFighter);
+            break;
+
+        case "mage":
+            this.manaMage = (this.game_state.current_unit.stats.mana * 100) / this.game_state.PlayerMenuItem1.manaMax;
+            this.game_state.PlayerMenuItem1.player_unit_mana.setPercent(this.manaMage); 
+            break;
+
+        case "ranger":
+            this.manaRanger = (this.game_state.current_unit.stats.mana * 100) / this.game_state.PlayerMenuItem2.manaMax;
+            this.game_state.PlayerMenuItem2.player_unit_mana.setPercent(this.manaRanger);
+            break;
+    }
     
     this.show_message(target, damage);
 };

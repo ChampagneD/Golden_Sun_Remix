@@ -2,9 +2,11 @@ var RPG = RPG || {};
 
 RPG.MagicAttackMenuItem = function (game_state, name, position, properties) {
     "use strict";
+
     RPG.MenuItem.call(this, game_state, name, position, properties);
-    
+
     this.MANA_COST = 10;
+
 };
 
 RPG.MagicAttackMenuItem.prototype = Object.create(RPG.MenuItem.prototype);
@@ -12,6 +14,23 @@ RPG.MagicAttackMenuItem.prototype.constructor = RPG.MagicAttackMenuItem;
 
 RPG.MagicAttackMenuItem.prototype.select = function () {
     "use strict";
+
+    if(this.game_state.current_unit){
+
+        switch(this.game_state.current_unit.name) {
+            case "fighter":
+                this.MANA_COST = 10;
+                break;
+
+            case "mage":
+                this.MANA_COST = 30;
+                break;
+
+            case "ranger":
+                this.MANA_COST = 20;
+                break;
+        }
+    }
     // use only if the current unit has enough mana
     if (this.game_state.current_unit.stats.mana >= this.MANA_COST) {
         // disable actions menu

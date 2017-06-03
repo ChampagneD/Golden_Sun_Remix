@@ -21,6 +21,7 @@ RPG.Unit.prototype.constructor = RPG.Unit;
 RPG.Unit.prototype.receive_damage = function (damage) {
     "use strict";
 
+    //Set the percentage of hp of the player 
     switch(this.name) {
         case "fighter":
             this.damageFighter = (this.game_state.damageFighter * 100) / this.game_state.PlayerMenuItem0.healthMax;
@@ -42,7 +43,6 @@ RPG.Unit.prototype.receive_damage = function (damage) {
     }
 
     this.stats.health -= damage;
-    console.log(this.stats.health);
     this.attacked_animation.start();
     if (this.stats.health <= 0) {
         this.stats.health = 0;
