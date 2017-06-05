@@ -1,6 +1,7 @@
 {
     "assets": {
         "map_tileset": {"type": "image", "source": "assets/images/open_tileset.png"},
+        "inventory_bg": {"type": "image", "source": "assets/images/rectangle.png"},
         "enemy_spawner_image": {"type": "image", "source": "assets/images/enemy_spawner.png"},
         "male_fighter_spritesheet": {"type": "spritesheet", "source": "assets/images/characters/fighter_m.png", "frame_width": 24, "frame_height": 32},
         
@@ -9,7 +10,8 @@
     "groups": [
         "items",
         "players",
-        "enemy_spawners"
+        "enemy_spawners",
+        "inventory"
     ],
     "map": {
         "key": "level_tilemap",

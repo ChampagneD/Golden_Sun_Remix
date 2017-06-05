@@ -18,13 +18,13 @@ RPG.Menu.prototype.constructor = RPG.Menu;
 RPG.Menu.prototype.process_input = function (event) {
     "use strict";
     switch (event.keyCode) {
-    case Phaser.Keyboard.UP:
+    case Phaser.Keyboard.Z:
         if (this.current_item_index > 0) {
             // navigate to previous item
             this.move_selection(this.current_item_index - 1);
         }
         break;
-    case Phaser.Keyboard.DOWN:
+    case Phaser.Keyboard.S:
         if (this.current_item_index < this.menu_items.length - 1) {
             // navigate to next item
             this.move_selection(this.current_item_index + 1);

@@ -7,6 +7,8 @@ RPG.Player = function (game_state, name, position, properties) {
     this.anchor.setTo(0.5);
     
     this.walking_speed = +properties.walking_speed;
+
+    this.TEXT_STYLE = {font: "14px Arial", fill: "#FFFFFF"};
     
     this.animations.add("walking_down", [6, 7, 8], 10, true);
     this.animations.add("walking_left", [9, 10, 11], 10, true);
@@ -35,7 +37,9 @@ RPG.Player = function (game_state, name, position, properties) {
     this.encounter_index;
     this.enemy_encounter;
 
-    this.cursors = this.game_state.game.input.keyboard.createCursorKeys();
+    this.inventory_state = false;
+
+    this.cursors = this.game_state.game.input.keyboard.addKeys({'up': Phaser.KeyCode.Z, 'down': Phaser.KeyCode.S, 'left': Phaser.KeyCode.Q, 'right': Phaser.KeyCode.D, 'inventory': Phaser.KeyCode.I});
 };
 
 RPG.Player.prototype = Object.create(RPG.Prefab.prototype);
@@ -47,6 +51,9 @@ RPG.Player.prototype.update = function () {
     this.game_state.game.physics.arcade.collide(this, this.game_state.layers.collision_front);
 
     this.battleProbability();
+
+    this.cursors.inventory.onDown.add(this.InventoryMenu, this)
+
     
     if (this.cursors.left.isDown && this.body.velocity.x <= 0) {
         // move left
@@ -95,7 +102,6 @@ RPG.Player.prototype.battleProbability = function(){
         this.player_previous_tile_pos.y = this.player_tile_pos.y;
 
         this.spawn_chance = this.game_state.game.rnd.frac();
-        console.log(this.spawn_chance);
         if (this.spawn_chance <= 0.08) {
             this.spawn_chance = this.game_state.game.rnd.frac();
             // check if the enemy spawn probability is less than the generated random number for each spawn
@@ -116,4 +122,43 @@ RPG.Player.prototype.battleProbability = function(){
                                                                             this.game_state.prefabs.player.position.y, this.player_tile_pos);
 
 
+};
+
+// Create an inventory and destroy it aswell
+RPG.Player.prototype.InventoryMenu = function(){
+    "use strict"
+    var players_menu, position, player_menu_character, player_menu_items, action_index;
+    
+    if (this.inventory_state == false) {
+        console.log(this.game_state.groups)
+        this.inventory_state = true;
+        this.inventory_bg = this.game_state.add.image(160, 0, "inventory_bg");
+        this.inventory_bg.scale.setTo(0.5, 1);
+
+        this.game_state.groups["inventory"].add(this.inventory_bg);
+        position = {x: 175, y: 10}
+
+        player_menu_items = [];
+        action_index = 0;
+
+        player_menu_character = [   
+                                    {text: "Fighter", item_constructor: RPG.MenuItem.prototype.constructor},
+                                    {text: "Mage", item_constructor: RPG.MenuItem.prototype.constructor},
+                                    {text: "Ranger", item_constructor: RPG.MenuItem.prototype.constructor},
+                                    {text: "items", item_constructor: RPG.MenuItem.prototype.constructor}
+                                ];
+
+        player_menu_character.forEach(function (action) {
+            player_menu_items.push(new action.item_constructor(this.game_state, action.text + "_menu_item", {x: position.x, y: position.y + action_index * 20}, {group: "inventory", text: action.text, style: Object.create(this.TEXT_STYLE)}));
+            action_index += 1;
+
+        }, this);
+
+        players_menu = new RPG.Menu(this.game_state, "inventory_menu", position, {group: "inventory", menu_items: player_menu_items});
+
+    } else { 
+        this.inventory_state = false;
+        this.game_state.groups.inventory.destroy(true, true);
+        console.log(this.game_state.groups)
+    }
 };
