@@ -11,13 +11,11 @@ RPG.PlayerMenuItem = function (game_state, name, position, properties) {
         
     this.prefab = this.game_state.prefabs[properties.text];
 
-    this.healthMax = this.prefab.stats["health"];
-    this.manaMax = this.prefab.stats["mana"];
-
-    // this.player_unit_health = new RPG.ShowStat(this.game_state, this.text + "_health", {x: 240, y: this.game_state.party_data[this._text].position.y - 30}, {group: "hud", text: "", style: properties.style, prefab: this.text, stat: "health"});
-    
+    this.healthMax = this.prefab.stats["maxHealth"];
+    this.manaMax = this.prefab.stats["maxMana"];
+  
     this.player_unit_health = new HealthBar(this.game, {
-                                                            width: this.prefab.stats["maxHealth"],
+                                                            width: this.healthMax,
                                                             height: 8,
                                                             x: 250,
                                                             y: this.game_state.party_data[this._text].position.y - 28,
@@ -30,7 +28,7 @@ RPG.PlayerMenuItem = function (game_state, name, position, properties) {
                                                             flipped: true
                                                         });
     this.player_unit_mana = new HealthBar(this.game, {
-                                                            width: this.prefab.stats["maxMana"],
+                                                            width: this.manaMax,
                                                             height: 8,
                                                             x: 250,
                                                             y: this.game_state.party_data[this._text].position.y - 18,
@@ -42,7 +40,6 @@ RPG.PlayerMenuItem = function (game_state, name, position, properties) {
                                                             },
                                                             flipped: true
                                                         });
-    // this.player_unit_mana = new RPG.ShowStat(this.game_state, this.text + "_health", {x: 270, y: this.game_state.party_data[this._text].position.y - 30}, {group: "hud", text: "", style: properties.style, prefab: this.text, stat: "mana"});
 
     switch(this._text) {
         case "fighter":
@@ -50,6 +47,11 @@ RPG.PlayerMenuItem = function (game_state, name, position, properties) {
                 this.damageFighter = (this.game_state.damageFighter * 100) / this.game_state.PlayerMenuItem0.healthMax;
                 this.damageFighter = 100 - this.damageFighter;
                 this.player_unit_health.setPercent(this.damageFighter);
+                
+            } 
+            if (this.game_state.party_data.fighter.properties.stats.mana) {
+                this.manaFighter = (this.game_state.party_data.fighter.properties.stats.mana * 100) / this.game_state.PlayerMenuItem0.manaMax;
+                this.game_state.PlayerMenuItem0.player_unit_mana.setPercent(this.manaFighter);
             }
             break;
 
@@ -57,7 +59,12 @@ RPG.PlayerMenuItem = function (game_state, name, position, properties) {
             if (this.game_state.damageMage) {
                 this.damageMage = (this.game_state.damageMage * 100) / this.healthMax;
                 this.damageMage = 100 - this.damageMage;
-                this.player_unit_health.setPercent(this.damageMage); 
+                this.player_unit_health.setPercent(this.damageMage);
+                
+            }
+            if (this.game_state.party_data.mage.properties.stats.mana) {
+                this.manaMage = (this.game_state.party_data.mage.properties.stats.mana * 100) / this.game_state.PlayerMenuItem1.manaMax;
+                this.game_state.PlayerMenuItem1.player_unit_mana.setPercent(this.manaMage);
             }
             break;
 
@@ -66,6 +73,11 @@ RPG.PlayerMenuItem = function (game_state, name, position, properties) {
                 this.damageRanger = (this.game_state.damageRanger * 100) / this.healthMax;
                 this.damageRanger = 100 - this.damageRanger;
                 this.player_unit_health.setPercent(this.damageRanger);
+                
+            }
+            if (this.game_state.party_data.ranger.properties.stats.mana) {
+                this.manaRanger = (this.game_state.party_data.ranger.properties.stats.mana * 100) / this.game_state.PlayerMenuItem2.manaMax;
+                this.game_state.PlayerMenuItem2.player_unit_mana.setPercent(this.manaRanger);
             }
             break;
     }
@@ -92,5 +104,5 @@ RPG.PlayerMenuItem.prototype.select = function () {
 
 RPG.PlayerMenuItem.prototype.update = function(){
 
-    //this.player_unit_health.setPercent();
+
 };

@@ -35,7 +35,6 @@ RPG.Player = function (game_state, name, position, properties) {
     this.encounter_index;
     this.enemy_encounter;
 
-
     this.cursors = this.game_state.game.input.keyboard.createCursorKeys();
 };
 
@@ -96,7 +95,8 @@ RPG.Player.prototype.battleProbability = function(){
         this.player_previous_tile_pos.y = this.player_tile_pos.y;
 
         this.spawn_chance = this.game_state.game.rnd.frac();
-        if (this.spawn_chance <= 1) {
+        console.log(this.spawn_chance);
+        if (this.spawn_chance <= 0.08) {
             this.spawn_chance = this.game_state.game.rnd.frac();
             // check if the enemy spawn probability is less than the generated random number for each spawn
             for (this.encounter_index = 0; this.encounter_index < this.game_state.level_data.enemy_encounters.length; this.encounter_index += 1) {

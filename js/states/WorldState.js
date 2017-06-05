@@ -54,6 +54,18 @@ RPG.WorldState.prototype.init = function (level_data, extra_parameters) {
                     "speed": 15,
                     "experience": 0,
                     "current_level": 0
+                },
+                "spells": {
+                    "destruction_aura": {
+                        "text": "destruction\naura",
+                        "MANA_COST": 30,
+                        "damage": 50
+                    },
+                    "battle_aura": {
+                        "text": "battle\naura",
+                        "MANA_COST": 15,
+                        "damage": 20
+                    }
                 }
             }
         },
@@ -75,6 +87,18 @@ RPG.WorldState.prototype.init = function (level_data, extra_parameters) {
                     "speed": 10,
                     "experience": 0,
                     "current_level": 0
+                },
+                "spells": {
+                    "destruction_aura1": {
+                        "text": "destruction\naura1",
+                        "MANA_COST": 30,
+                        "damage": 50
+                    },
+                    "battle_aura1": {
+                        "text": "battle\naura1",
+                        "MANA_COST": 15,
+                        "damage": 20
+                    }
                 }
             }
         },
@@ -96,6 +120,18 @@ RPG.WorldState.prototype.init = function (level_data, extra_parameters) {
                     "speed": 20,
                     "experience": 0,
                     "current_level": 0
+                },
+                "spells": {
+                    "destruction_aura2": {
+                        "text": "destruction\naura2",
+                        "MANA_COST": 30,
+                        "damage": 50
+                    },
+                    "battle_aura2": {
+                        "text": "battle\naura2",
+                        "MANA_COST": 15,
+                        "damage": 20
+                    }
                 }
             }
         }

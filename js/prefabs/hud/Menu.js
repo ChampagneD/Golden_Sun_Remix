@@ -6,7 +6,7 @@ RPG.Menu = function (game_state, name, position, properties) {
     RPG.Prefab.call(this, game_state, name, position, properties);
     
     this.visible = false;
-    
+
     this.menu_items = properties.menu_items;
     
     this.current_item_index = 0;
@@ -74,6 +74,7 @@ RPG.Menu.prototype.enable = function () {
         this.current_item_index = 0;
         this.menu_items[this.current_item_index].selection_over();
     }
+
     this.game_state.game.input.keyboard.addCallbacks(this, this.process_input);
 };
 

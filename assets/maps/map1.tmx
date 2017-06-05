@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="20" height="20" tilewidth="16" tileheight="16">
- <tileset firstgid="1" name="map_tileset" tilewidth="16" tileheight="16">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="16" tileheight="16" nextobjectid="5">
+ <tileset firstgid="1" name="map_tileset" tilewidth="16" tileheight="16" tilecount="110" columns="10">
   <image source="../images/open_tileset.png" width="160" height="180"/>
  </tileset>
- <tileset firstgid="111" name="fighter_m" tilewidth="24" tileheight="32">
+ <tileset firstgid="111" name="fighter_m" tilewidth="24" tileheight="32" tilecount="12" columns="3">
   <image source="../images/characters/fighter_m.png" width="72" height="128"/>
  </tileset>
  <layer name="background_back" width="20" height="20">
@@ -1628,30 +1628,12 @@
    <tile gid="0"/>
   </data>
  </layer>
- <objectgroup name="objects" width="20" height="20">
-  <object name="player" type="player" gid="118" x="224" y="240">
+ <objectgroup name="objects">
+  <object id="1" name="player" type="player" gid="118" x="224" y="240" width="24" height="32">
    <properties>
     <property name="group" value="players"/>
     <property name="texture" value="male_fighter_spritesheet"/>
     <property name="walking_speed" value="100"/>
-   </properties>
-  </object>
-  <object name="enemy_spawner0" type="enemy_spawner" gid="71" x="160" y="288">
-   <properties>
-    <property name="group" value="enemy_spawners"/>
-    <property name="texture" value="enemy_spawner_image"/>
-   </properties>
-  </object>
-  <object name="enemy_spawner1" type="enemy_spawner" gid="71" x="48" y="80">
-   <properties>
-    <property name="group" value="enemy_spawners"/>
-    <property name="texture" value="enemy_spawner_image"/>
-   </properties>
-  </object>
-  <object name="enemy_spawner2" type="enemy_spawner" gid="71" x="224" y="96">
-   <properties>
-    <property name="group" value="enemy_spawners"/>
-    <property name="texture" value="enemy_spawner_image"/>
    </properties>
   </object>
  </objectgroup>

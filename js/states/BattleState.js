@@ -41,7 +41,6 @@ RPG.BattleState.prototype.preload = function () {
 RPG.BattleState.prototype.create = function () {
     "use strict";
     var group_name, prefab_name, player_unit_name, enemy_unit_name;
-    
     // create groups
     this.groups = {};
     this.level_data.groups.forEach(function (group_name) {
@@ -124,7 +123,7 @@ RPG.BattleState.prototype.init_hud = function () {
     this.show_units("enemy_units", {x: 5, y: 210}, RPG.EnemyMenuItem.prototype.constructor);
     
     // create items menu
-    this.prefabs.inventory.create_menu({x: 106, y: 210});
+    this.prefabs.inventory.create_menu({x: 165, y: 210});
 };
 
 RPG.BattleState.prototype.show_units = function (group_name, position, menu_item_constructor) {
@@ -145,7 +144,7 @@ RPG.BattleState.prototype.show_units = function (group_name, position, menu_item
 
 RPG.BattleState.prototype.show_player_actions = function (position) {
     "use strict";
-    var actions, actions_menu_items, action_index, actions_menu;
+    var actions, actions_menu_items, action_index, actions_menu, spell_menu;
     // available actions
     actions = [{text: "Attack", item_constructor: RPG.AttackMenuItem.prototype.constructor},
                {text: "Magic", item_constructor: RPG.MagicAttackMenuItem.prototype.constructor},
@@ -158,6 +157,7 @@ RPG.BattleState.prototype.show_player_actions = function (position) {
         action_index += 1;
     }, this);
     actions_menu = new RPG.Menu(this, "actions_menu", position, {group: "hud", menu_items: actions_menu_items});
+
 };
 
 RPG.BattleState.prototype.next_turn = function () {
