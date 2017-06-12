@@ -26,25 +26,34 @@ RPG.MagicAttack.prototype.hit = function (target) {
     // calculate damage using the magic attack stat
     damage = Math.max(0, Math.round((attack_multiplier * this.damage) - (defense_multiplier * target.stats.defense)));
     
-    /*if (!this.game_state.damageFighter) this.game_state.damageFighter = 0;
-
-    if (!this.game_state.damageMage) this.game_state.damageMage = 0;
-
-    if (!this.game_state.damageRanger) this.game_state.damageRanger = 0;
+    function moveCompletePlayer(){
+        this.game_state.current_unit.body.moveTo(200, 50, Phaser.ANGLE_RIGHT);
+    }
+    function moveCompleteEnemy(){
+        this.game_state.current_unit.body.moveTo(200, 50, Phaser.ANGLE_LEFT);
+    }
 
     switch(this.game_state.current_unit.name) {
         case "fighter":
-            this.game_state.damageFighter += damage;
+            this.game_state.current_unit.body.moveTo(200, 50, Phaser.ANGLE_LEFT)
+            this.game_state.current_unit.body.onMoveComplete.addOnce(moveCompletePlayer, this);
             break;
 
         case "mage":
-            this.game_state.damageMage += damage;
+            this.game_state.current_unit.body.moveTo(200, 50, Phaser.ANGLE_LEFT)
+            this.game_state.current_unit.body.onMoveComplete.addOnce(moveCompletePlayer, this);
             break;
 
         case "ranger":
-            this.game_state.damageRanger += damage;
+            this.game_state.current_unit.body.moveTo(200, 50, Phaser.ANGLE_LEFT);
+            this.game_state.current_unit.body.onMoveComplete.addOnce(moveCompletePlayer,this);
             break;
-    }*/
+        default: 
+            this.game_state.current_unit.body.moveTo(200, 50, Phaser.ANGLE_RIGHT)
+            this.game_state.current_unit.body.onMoveComplete.addOnce(moveCompleteEnemy,this);
+            break;
+        
+    }
 
     // apply damage
     target.receive_damage(damage);

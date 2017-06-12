@@ -24,6 +24,37 @@ RPG.PhysicalAttack.prototype.hit = function (target) {
 
     if (!this.game_state.damageRanger) this.game_state.damageRanger = 0;
 
+    this.game_state.enemy_turn = false;
+
+    function moveCompletePlayer(){
+        this.game_state.current_unit.body.moveTo(200, 50, Phaser.ANGLE_RIGHT);
+    }
+    function moveCompleteEnemy(){
+        this.game_state.current_unit.body.moveTo(200, 50, Phaser.ANGLE_LEFT);
+    }
+
+    switch(this.game_state.current_unit.name) {
+        case "fighter":
+            this.game_state.current_unit.body.moveTo(200, 50, Phaser.ANGLE_LEFT)
+            this.game_state.current_unit.body.onMoveComplete.addOnce(moveCompletePlayer, this);
+            break;
+
+        case "mage":
+            this.game_state.current_unit.body.moveTo(200, 50, Phaser.ANGLE_LEFT)
+            this.game_state.current_unit.body.onMoveComplete.addOnce(moveCompletePlayer, this);
+            break;
+
+        case "ranger":
+            this.game_state.current_unit.body.moveTo(200, 50, Phaser.ANGLE_LEFT);
+            this.game_state.current_unit.body.onMoveComplete.addOnce(moveCompletePlayer,this);
+            break;
+        default: 
+            this.game_state.current_unit.body.moveTo(200, 50, Phaser.ANGLE_RIGHT)
+            this.game_state.current_unit.body.onMoveComplete.addOnce(moveCompleteEnemy,this);
+            break;
+        
+    }
+
     switch(target.name) {
         case "fighter":
             this.game_state.damageFighter += damage;
@@ -36,6 +67,7 @@ RPG.PhysicalAttack.prototype.hit = function (target) {
         case "ranger":
             this.game_state.damageRanger += damage;
             break;
+        
     }
 
     // apply damage

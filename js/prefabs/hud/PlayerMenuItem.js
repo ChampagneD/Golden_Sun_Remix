@@ -16,9 +16,9 @@ RPG.PlayerMenuItem = function (game_state, name, position, properties) {
   
     this.player_unit_health = new HealthBar(this.game, {
                                                             width: this.healthMax,
-                                                            height: 8,
-                                                            x: 250,
-                                                            y: this.game_state.party_data[this._text].position.y - 28,
+                                                            height: 10,
+                                                            x: 550,
+                                                            y: this.game_state.party_data[this._text].position.y - 50,
                                                             bg: {
                                                                 color: "red"
                                                             },
@@ -29,9 +29,9 @@ RPG.PlayerMenuItem = function (game_state, name, position, properties) {
                                                         });
     this.player_unit_mana = new HealthBar(this.game, {
                                                             width: this.manaMax,
-                                                            height: 8,
-                                                            x: 250,
-                                                            y: this.game_state.party_data[this._text].position.y - 18,
+                                                            height: 10,
+                                                            x: 550,
+                                                            y: this.game_state.party_data[this._text].position.y - 38,
                                                             bg: {
                                                                 color: "red"
                                                             },

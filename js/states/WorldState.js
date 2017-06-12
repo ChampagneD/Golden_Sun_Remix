@@ -6,7 +6,7 @@ RPG.WorldState = function () {
     
     this.prefab_classes = {
         "player": RPG.Player.prototype.constructor,
-        "enemy_spawner": RPG.EnemySpawner.prototype.constructor
+        "goal": RPG.Goal.prototype.constructor
     };
 };
 
@@ -38,7 +38,7 @@ RPG.WorldState.prototype.init = function (level_data, extra_parameters) {
     this.party_data = extra_parameters.party_data || {
         "fighter": {
             "type": "player_unit",
-            "position": {"x": 250, "y": 50},
+            "position": {"x": 550, "y": 80},
             "properties": {
                 "texture": "male_fighter_spritesheet",
                 "group": "player_units",
@@ -71,7 +71,7 @@ RPG.WorldState.prototype.init = function (level_data, extra_parameters) {
         },
         "mage": {
             "type": "player_unit",
-            "position": {"x": 250, "y": 100},
+            "position": {"x": 550, "y": 190},
             "properties": {
                 "texture": "female_mage_spritesheet",
                 "group": "player_units",
@@ -104,7 +104,7 @@ RPG.WorldState.prototype.init = function (level_data, extra_parameters) {
         },
         "ranger": {
             "type": "player_unit",
-            "position": {"x": 250, "y": 150},
+            "position": {"x": 550, "y": 290},
             "properties": {
                 "texture": "female_ranger_spritesheet",
                 "group": "player_units",
@@ -185,6 +185,7 @@ RPG.WorldState.prototype.create = function () {
     }
     
     // if we came from BattleState, move the player to the previous position
+    console.log(this.player_position);
     if (this.player_position) {
         this.prefabs.player.reset(this.player_position.x, this.player_position.y);
     }

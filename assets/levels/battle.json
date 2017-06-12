@@ -26,44 +26,44 @@
             "properties": {
                 "texture": "grass_tile_image",
                 "group": "background",
-                "width": 320,
-                "height": 320
+                "width": 640,
+                "height": 480
             }
         },
         "enemy_rectangle": {
             "type": "rectangle",
-            "position": {"x": 0, "y": 200},
+            "position": {"x": 0, "y": 360},
             "properties": {
                 "texture": "rectangle_image",
                 "group": "hud",
-                "scale": {"x": 0.22, "y": 1}
+                "scale": {"x": 0.5, "y": 1}
             }
         },
         "skill_rectangle": {
             "type": "rectangle",
-            "position": {"x": 70, "y": 200},
+            "position": {"x": 160, "y": 360},
             "properties": {
                 "texture": "rectangle_image",
                 "group": "hud",
-                "scale": {"x": 0.256, "y": 1}
+                "scale": {"x": 0.5, "y": 1}
             }
         },
         "action_rectangle": {
             "type": "rectangle",
-            "position": {"x": 152, "y": 200},
+            "position": {"x": 320, "y": 360},
             "properties": {
                 "texture": "rectangle_image",
                 "group": "hud",
-                "scale": {"x": 0.223, "y": 1}
+                "scale": {"x": 0.5, "y": 1}
             }
         },
         "player_rectangle": {
             "type": "rectangle",
-            "position": {"x": 223, "y": 200},
+            "position": {"x": 480, "y": 360},
             "properties": {
                 "texture": "rectangle_image",
                 "group": "hud",
-                "scale": {"x": 0.3, "y": 1}
+                "scale": {"x": 0.5, "y": 1}
             }
         }        
     }

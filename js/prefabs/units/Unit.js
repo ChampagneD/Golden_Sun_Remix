@@ -5,7 +5,6 @@ RPG.Unit = function (game_state, name, position, properties) {
     RPG.Prefab.call(this, game_state, name, position, properties);
     
     this.anchor.setTo(0.5);
-    
     this.stats = Object.create(properties.stats);
     
     this.attacked_animation = this.game_state.game.add.tween(this);
@@ -72,6 +71,14 @@ RPG.Unit.prototype.restore_tint = function () {
     "use strict";
     this.tint = 0xFFFFFF;
 };
+
+RPG.Unit.moveCompletePlayer = function(){
+
+};
+
+RPG.Unit.moveCompleteEnemy = function(){
+    
+}
 
 RPG.Unit.prototype.calculate_act_turn = function (current_turn) {
     "use strict";

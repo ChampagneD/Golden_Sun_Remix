@@ -19,3 +19,8 @@ RPG.EnemyMenuItem.prototype.select = function () {
     this.game_state.prefabs.enemy_units_menu.disable();
     this.game_state.prefabs.player_units_menu.disable();
 };
+
+RPG.EnemyMenuItem.prototype.unSelect = function () {
+    this.game_state.prefabs.enemy_units_menu.disable();
+    this.game_state.prefabs.actions_menu.enable();
+}

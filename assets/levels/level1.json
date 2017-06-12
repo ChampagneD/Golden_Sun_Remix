@@ -1,17 +1,16 @@
 {
     "assets": {
-        "map_tileset": {"type": "image", "source": "assets/images/open_tileset.png"},
+        "map_tileset": {"type": "image", "source": "assets/images/tileset_final.png"},
         "inventory_bg": {"type": "image", "source": "assets/images/rectangle.png"},
-        "enemy_spawner_image": {"type": "image", "source": "assets/images/enemy_spawner.png"},
-        "male_fighter_spritesheet": {"type": "spritesheet", "source": "assets/images/characters/fighter_m.png", "frame_width": 24, "frame_height": 32},
-        
-        "level_tilemap": {"type": "tilemap", "source": "assets/maps/map1.json"}
+        "male_fighter_spritesheet": {"type": "spritesheet", "source": "assets/images/characters/Isacc.png", "frame_width": 32, "frame_height": 32, "margin": 11 ,"spacing": 23},
+        "goal_image": { "type": "image", "source": "assets/images/goal_transparent.png" },
+        "level_tilemap": {"type": "tilemap", "source": "assets/maps/worldmap.json"}
     },
     "groups": [
         "items",
         "players",
-        "enemy_spawners",
-        "inventory"
+        "inventory",
+        "goals"
     ],
     "map": {
         "key": "level_tilemap",
@@ -22,7 +21,7 @@
          "enemy_data": {
             "lizard1": {
                 "type": "enemy_unit",
-                "position": {"x": 100, "y": 100},
+                "position": {"x": 100, "y": 200},
                 "properties": {
                     "texture": "lizard_spritesheet",
                     "group": "enemy_units",
@@ -30,7 +29,7 @@
                         "attack": 30,
                         "defense": 10,
                         "health": 50,
-                        "speed": 50
+                        "speed": 20
                     }
                 }
             }
@@ -44,20 +43,6 @@
          "enemy_data": {
             "bat1": {
                 "type": "enemy_unit",
-                "position": {"x": 100, "y": 90},
-                "properties": {
-                    "texture": "bat_spritesheet",
-                    "group": "enemy_units",
-                    "stats": {
-                        "attack": 10,
-                        "defense": 1,
-                        "health": 30,
-                        "speed": 50
-                    }
-                }
-            },
-            "bat2": {
-                "type": "enemy_unit",
                 "position": {"x": 100, "y": 170},
                 "properties": {
                     "texture": "bat_spritesheet",
@@ -66,7 +51,21 @@
                         "attack": 10,
                         "defense": 1,
                         "health": 30,
-                        "speed": 50
+                        "speed": 20
+                    }
+                }
+            },
+            "bat2": {
+                "type": "enemy_unit",
+                "position": {"x": 100, "y": 250},
+                "properties": {
+                    "texture": "bat_spritesheet",
+                    "group": "enemy_units",
+                    "stats": {
+                        "attack": 10,
+                        "defense": 1,
+                        "health": 30,
+                        "speed": 20
                     }
                 }
             }
@@ -80,7 +79,7 @@
          "enemy_data": {
             "scorpion1": {
                 "type": "enemy_unit",
-                "position": {"x": 100, "y": 50},
+                "position": {"x": 100, "y": 80},
                 "properties": {
                     "texture": "scorpion_spritesheet",
                     "group": "enemy_units",
@@ -88,13 +87,13 @@
                         "attack": 15,
                         "defense": 1,
                         "health": 20,
-                        "speed": 50
+                        "speed": 20
                     }
                 }
             },
             "scorpion2": {
                 "type": "enemy_unit",
-                "position": {"x": 100, "y": 100},
+                "position": {"x": 100, "y": 190},
                 "properties": {
                     "texture": "scorpion_spritesheet",
                     "group": "enemy_units",
@@ -102,13 +101,13 @@
                         "attack": 15,
                         "defense": 1,
                         "health": 20,
-                        "speed": 50
+                        "speed": 20
                     }
                 }
             },
             "scorpion3": {
                 "type": "enemy_unit",
-                "position": {"x": 100, "y": 150},
+                "position": {"x": 100, "y": 290},
                 "properties": {
                     "texture": "scorpion_spritesheet",
                     "group": "enemy_units",
@@ -116,7 +115,7 @@
                         "attack": 15,
                         "defense": 1,
                         "health": 20,
-                        "speed": 50
+                        "speed": 20
                     }
                 }
             }

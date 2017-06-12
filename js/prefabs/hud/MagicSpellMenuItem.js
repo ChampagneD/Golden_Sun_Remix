@@ -25,3 +25,14 @@ RPG.MagicSpellMenuItem.prototype.select = function () {
         this.game_state.current_attack = new RPG.MagicAttack(this.game_state, this.game_state.current_unit.name + "_attack", {x: 0, y: 0}, {group: "attacks", mana_cost: this.MANA_COST, damage: this.damage, owner_name: this.game_state.current_unit.name});
     }
 };
+
+RPG.MagicSpellMenuItem.prototype.unSelect = function() {
+
+    this.game_state.prefabs.actions_menu.enable();
+    this.game_state.prefabs.spell_menu.disable();
+
+    this.game_state.prefabs.spell_menu.menu_items.forEach(function(items){
+            items.kill();
+    });
+
+}

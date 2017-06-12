@@ -1,0 +1,19 @@
+{
+    "assets": {
+        "map_tileset": {"type": "image", "source": "assets/images/open_tileset.png"},
+        "inventory_bg": {"type": "image", "source": "assets/images/rectangle.png"},
+        "male_fighter_spritesheet": {"type": "spritesheet", "source": "assets/images/characters/Isacc.png", "frame_width": 32, "frame_height": 32, "margin": 11 ,"spacing": 23},
+        "goal_image": { "type": "image", "source": "assets/images/goal_transparent.png" },
+        "level_tilemap": {"type": "tilemap", "source": "assets/maps/map1.json"}
+    },
+    "groups": [
+        "items",
+        "players",
+        "inventory",
+        "goals"
+    ],
+    "map": {
+        "key": "level_tilemap",
+        "tilesets": ["map_tileset", "male_fighter_spritesheet"]
+    }
+}

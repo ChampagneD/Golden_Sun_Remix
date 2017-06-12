@@ -62,14 +62,13 @@
         }, 
         {
          "draworder":"topdown",
-         "height":20,
          "name":"objects",
          "objects":[
                 {
                  "gid":118,
                  "height":32,
                  "id":1,
-                 "name":"player",
+                 "name":"playerTown",
                  "properties":
                     {
                      "group":"players",
@@ -83,20 +82,45 @@
                      "walking_speed":"string"
                     },
                  "rotation":0,
-                 "type":"player",
+                 "type":"playerTown",
                  "visible":true,
                  "width":24,
                  "x":224,
                  "y":240
+                }, 
+                {
+                 "gid":47,
+                 "height":16,
+                 "id":5,
+                 "name":"goal",
+                 "properties":
+                    {
+                     "State":"WorldState",
+                     "group":"goals",
+                     "texture":"goal_image",
+                     "town":"assets\/levels\/level1.json"
+                    },
+                 "propertytypes":
+                    {
+                     "State":"string",
+                     "group":"string",
+                     "texture":"string",
+                     "town":"string"
+                    },
+                 "rotation":0,
+                 "type":"goal",
+                 "visible":true,
+                 "width":16,
+                 "x":128,
+                 "y":18
                 }],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
-         "width":20,
          "x":0,
          "y":0
         }],
- "nextobjectid":5,
+ "nextobjectid":6,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tileheight":16,
@@ -128,6 +152,7 @@
          "tilewidth":24
         }],
  "tilewidth":16,
- "version":1,
+ "type":"map",
+ "version":"1.0.0",
  "width":20
 }

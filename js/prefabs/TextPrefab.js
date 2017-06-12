@@ -11,6 +11,8 @@ RPG.TextPrefab = function (game_state, name, position, properties) {
     this.game_state.groups[properties.group].add(this);
     
     this.game_state.prefabs[name] = this;
+
+    game_state.game.world.bringToTop(this.game_state.groups[properties.group]);
 };
 
 RPG.TextPrefab.prototype = Object.create(Phaser.Text.prototype);

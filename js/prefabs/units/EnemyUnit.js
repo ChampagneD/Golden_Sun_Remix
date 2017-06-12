@@ -17,6 +17,7 @@ RPG.EnemyUnit.prototype.constructor = RPG.EnemyUnit;
 RPG.EnemyUnit.prototype.act = function () {
     "use strict";
     var target_index, target, damage;
+
     // randomly choose target
     if (this.game_state.groups.player_units.countLiving() - 1 == 0) {
         target_index = this.game_state.groups.player_units.getFirstAlive().z;

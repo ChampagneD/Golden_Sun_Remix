@@ -96,7 +96,7 @@ RPG.BattleState.prototype.create = function () {
         unit.calculate_act_turn(0);
         this.units.queue(unit);
     }, this);
-    
+
     this.next_turn();
 };
 
@@ -114,16 +114,16 @@ RPG.BattleState.prototype.init_hud = function () {
     var unit_index, player_unit_health;
     
     // show player actions
-    this.show_player_actions({x: 165, y: 210});
+    this.show_player_actions({x: 350, y: 370});
     
     // show player units
-    this.show_units("player_units", {x: 250, y: 210}, RPG.PlayerMenuItem.prototype.constructor);
+    this.show_units("player_units", {x: 550, y: 370}, RPG.PlayerMenuItem.prototype.constructor);
     
     // show enemy units
-    this.show_units("enemy_units", {x: 5, y: 210}, RPG.EnemyMenuItem.prototype.constructor);
+    this.show_units("enemy_units", {x: 10, y: 370}, RPG.EnemyMenuItem.prototype.constructor);
     
     // create items menu
-    this.prefabs.inventory.create_menu({x: 165, y: 210});
+    this.prefabs.inventory.create_menu({x: 180, y: 370});
 };
 
 RPG.BattleState.prototype.show_units = function (group_name, position, menu_item_constructor) {
@@ -138,6 +138,7 @@ RPG.BattleState.prototype.show_units = function (group_name, position, menu_item
         unit_index += 1;
         menu_items.push(unit_menu_item);
     }, this);
+
     // create units menu
     units_menu = new RPG.Menu(this, group_name + "_menu", position, {group: "hud", menu_items: menu_items});
 };
@@ -197,6 +198,8 @@ RPG.BattleState.prototype.game_over = function () {
 RPG.BattleState.prototype.end_battle = function () {
     "use strict";
     var received_experience;
+
+    console.log("OKOK");
     
     // receive battle reward
     received_experience = this.encounter.reward.experience;

@@ -24,7 +24,7 @@ RPG.MagicAttackMenuItem.prototype.select = function () {
 
         actions = [];
 
-        var positionSpell = {x: 80, y: 210};
+        var positionSpell = {x: 180, y: 370};
 
         for(var key in this.current_unit_spells.spells){
             actions.push({text: this.current_unit_spells.spells[key].text, item_constructor: RPG.MagicSpellMenuItem.prototype.constructor, spell: this.current_unit_spells.spells[key]});
