@@ -13,7 +13,7 @@ RPG.PlayerMenuItem = function (game_state, name, position, properties) {
 
     this.healthMax = this.prefab.stats["maxHealth"];
     this.manaMax = this.prefab.stats["maxMana"];
-  
+
     this.player_unit_health = new HealthBar(this.game, {
                                                             width: this.healthMax,
                                                             height: 10,

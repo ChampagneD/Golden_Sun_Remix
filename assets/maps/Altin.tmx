@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" nextobjectid="4">
+<map version="1.0.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" nextobjectid="5">
  <tileset firstgid="1" name="map_tileset" tilewidth="32" tileheight="32" tilecount="14720" columns="32">
-  <image source="../../../Golden_Sun_Remix/assets/images/tileset_final.png" trans="f7f6ff" width="1024" height="14720"/>
+  <image source="../images/tileset_final.png" trans="f7f6ff" width="1024" height="14720"/>
  </tileset>
  <layer name="background_back" width="50" height="50">
   <data encoding="csv">
@@ -239,6 +239,13 @@
     <property name="group" value="goals"/>
     <property name="texture" value="goal_image"/>
     <property name="town" value="assets/levels/level1.json"/>
+   </properties>
+  </object>
+  <object id="4" name="NPC" type="NPC" gid="95" x="610.103" y="1377.26" width="32" height="32">
+   <properties>
+    <property name="group" value="NPCs"/>
+    <property name="id" value="0"/>
+    <property name="texture" value="NPC1_spritesheet"/>
    </properties>
   </object>
  </objectgroup>

@@ -9,10 +9,10 @@
     },
     "groups": [
         "items",
+        "NPCs",
         "players",
         "inventory",
-        "goals",
-        "NPC"
+        "goals"
     ],
     "map": {
         "key": "level_tilemap",

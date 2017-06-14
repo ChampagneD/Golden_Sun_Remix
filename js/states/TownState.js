@@ -6,19 +6,27 @@ RPG.TownState = function () {
     
     this.prefab_classes = {
         "playerTown": RPG.PlayerTown.prototype.constructor,
-        "goal": RPG.Goal.prototype.constructor
+        "goal": RPG.Goal.prototype.constructor,
+        "NPC": RPG.NPC.prototype.constructor
     };
+
+    this.TEXT_STYLE = {font: "14px Arial", fill: "#FFFFFF"};
+
 };
 
 RPG.TownState.prototype = Object.create(Phaser.State.prototype);
 RPG.TownState.prototype.constructor = RPG.TownState;
 
-RPG.TownState.prototype.init = function (level_data, extra_parameters) {
+RPG.TownState.prototype.init = function (level_data, extra_parameters, dialogue_data) {
     "use strict";
     var tileset_index;
     this.level_data = this.level_data || level_data;
-    
-   this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+
+    this.dialogue_data = dialogue_data;
+
+    console.log(this.dialogue_data)
+
+    this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
     this.scale.pageAlignHorizontally = true;
     this.scale.pageAlignVertically = true;
     
@@ -38,11 +46,11 @@ RPG.TownState.prototype.init = function (level_data, extra_parameters) {
     this.party_data = extra_parameters.party_data || {
         "fighter": {
             "type": "player_unit",
-            "position": {"x": 250, "y": 80},
+            "position": {"x": 550, "y": 80},
             "properties": {
                 "texture": "male_fighter_spritesheet",
                 "group": "player_units",
-                "frame": 10,
+                "frame": 9,
                 "stats": {
                     "attack": 20,
                     "magic_attack": 5,
@@ -56,13 +64,21 @@ RPG.TownState.prototype.init = function (level_data, extra_parameters) {
                     "current_level": 0
                 },
                 "spells": {
-                    "destruction_aura": {
-                        "text": "destruction\naura",
-                        "MANA_COST": 30,
-                        "damage": 50
+                    "DemonFire": {
+                        "name": "DemonFire",
+                        "text": "DemonFire",
+                        "MANA_COST": 15,
+                        "damage": 20
                     },
-                    "battle_aura": {
-                        "text": "battle\naura",
+                    "Frost": {
+                        "name": "Frost",
+                        "text": "Frost",
+                        "MANA_COST": 15,
+                        "damage": 20
+                    },
+                    "Acheron": {
+                        "name": "Acheron",
+                        "text": "Acheron's Grief",
                         "MANA_COST": 15,
                         "damage": 20
                     }
@@ -71,11 +87,11 @@ RPG.TownState.prototype.init = function (level_data, extra_parameters) {
         },
         "mage": {
             "type": "player_unit",
-            "position": {"x": 250, "y": 190},
+            "position": {"x": 550, "y": 190},
             "properties": {
                 "texture": "female_mage_spritesheet",
                 "group": "player_units",
-                "frame": 10,
+                "frame": 9,
                 "stats": {
                     "attack": 5,
                     "magic_attack": 20,
@@ -89,13 +105,27 @@ RPG.TownState.prototype.init = function (level_data, extra_parameters) {
                     "current_level": 0
                 },
                 "spells": {
-                    "destruction_aura1": {
-                        "text": "destruction\naura1",
+                    "Meteor": {
+                        "name": "Meteor",
+                        "text": "Meteor",
                         "MANA_COST": 30,
                         "damage": 50
                     },
-                    "battle_aura1": {
-                        "text": "battle\naura1",
+                    "Volcano": {
+                        "name": "Volcano",
+                        "text": "Volcano",
+                        "MANA_COST": 15,
+                        "damage": 20
+                    },
+                    "Purgatory": {
+                        "name": "Purgatory",
+                        "text": "Purgatory",
+                        "MANA_COST": 15,
+                        "damage": 20
+                    },
+                    "EarthForce": {
+                        "name": "EarthForce",
+                        "text": "Earth Force",
                         "MANA_COST": 15,
                         "damage": 20
                     }
@@ -104,11 +134,11 @@ RPG.TownState.prototype.init = function (level_data, extra_parameters) {
         },
         "ranger": {
             "type": "player_unit",
-            "position": {"x": 250, "y": 290},
+            "position": {"x": 550, "y": 290},
             "properties": {
                 "texture": "female_ranger_spritesheet",
                 "group": "player_units",
-                "frame": 10,
+                "frame": 9,
                 "stats": {
                     "attack": 10,
                     "magic_attack": 10,
@@ -122,13 +152,15 @@ RPG.TownState.prototype.init = function (level_data, extra_parameters) {
                     "current_level": 0
                 },
                 "spells": {
-                    "destruction_aura2": {
-                        "text": "destruction\naura2",
-                        "MANA_COST": 30,
-                        "damage": 50
+                    "DemonFire": {
+                        "name": "DemonFire",
+                        "text": "DemonFire",
+                        "MANA_COST": 15,
+                        "damage": 20
                     },
-                    "battle_aura2": {
-                        "text": "battle\naura2",
+                    "Pyroclasm": {
+                        "name": "Pyroclasm",
+                        "text": "PyroClasm",
                         "MANA_COST": 15,
                         "damage": 20
                     }
@@ -136,7 +168,7 @@ RPG.TownState.prototype.init = function (level_data, extra_parameters) {
             }
         }
     };
-    
+
     // save inventory from the BattleState, if it exists
     this.inventory = extra_parameters.inventory;
     

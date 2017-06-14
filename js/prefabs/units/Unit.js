@@ -3,7 +3,28 @@ var RPG = RPG || {};
 RPG.Unit = function (game_state, name, position, properties) {
     "use strict";
     RPG.Prefab.call(this, game_state, name, position, properties);
-    
+
+    switch(name) {
+        case "fighter":
+            this.animations.add("PhysicalAttack", [0,1], 3, false);
+            this.animations.add("MagicAttack", [5,6], 3, false);
+            break;
+
+        case "mage":
+            this.animations.add("PhysicalAttack", [0,1], 3, false);
+            this.animations.add("MagicAttack", [5,6], 3, false);
+            break;
+
+        case "ranger":
+            this.animations.add("PhysicalAttack", [0,1], 3, false);
+            this.animations.add("MagicAttack", [5,6], 2, false);
+            break;
+        default: 
+            
+            break;
+        
+    }
+
     this.anchor.setTo(0.5);
     this.stats = Object.create(properties.stats);
     
@@ -71,14 +92,6 @@ RPG.Unit.prototype.restore_tint = function () {
     "use strict";
     this.tint = 0xFFFFFF;
 };
-
-RPG.Unit.moveCompletePlayer = function(){
-
-};
-
-RPG.Unit.moveCompleteEnemy = function(){
-    
-}
 
 RPG.Unit.prototype.calculate_act_turn = function (current_turn) {
     "use strict";

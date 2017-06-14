@@ -198,8 +198,6 @@ RPG.BattleState.prototype.game_over = function () {
 RPG.BattleState.prototype.end_battle = function () {
     "use strict";
     var received_experience;
-
-    console.log("OKOK");
     
     // receive battle reward
     received_experience = this.encounter.reward.experience;

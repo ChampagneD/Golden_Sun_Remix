@@ -1,0 +1,37 @@
+[
+	{
+		"txt": "Hi hero",
+		"choice": [
+            { "txt": "Hi plebeian", "id": 1},
+            { "txt": "Hi ma'am", "id": 2},
+            { "txt": "dernière reponse", "id": false}
+        ]
+	},
+	{
+		"txt": "So you're this sort of hero hmm ?",
+		"choice": [
+            { "txt": "Of course I am !", "id": 3},
+            { "txt": "I'm the kind of hero who save the world", "id": 4},
+            { "txt": "I do what I like all I do is swipe", "id": false}
+        ]
+	},
+	{
+		"txt": "You're so kind hero, How are you ?",
+		"choice": [
+            { "txt": "I'm good thanks ma'am", "id": false},
+            { "txt": "I'm sorry but I got to go miss", "id": false}
+        ]
+	},
+	{
+		"txt": "I am please that you are hero !",
+		"choice": [
+            { "txt": "thanks ma'am", "id": false}
+        ]
+	},
+	{
+		"txt": "And you're the kind to forget your education kid !",
+		"choice": [
+            { "txt": "Lalalalal I don't hear you I need to save the world", "id": false}
+        ]
+	}
+]

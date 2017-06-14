@@ -85,8 +85,8 @@
                  "type":"playerTown",
                  "visible":true,
                  "width":32,
-                 "x":623.918435888209,
-                 "y":1535.73131821998
+                 "x":623.918,
+                 "y":1535.73
                 }, 
                 {
                  "gid":158,
@@ -111,8 +111,32 @@
                  "type":"goal",
                  "visible":true,
                  "width":32,
-                 "x":622.279345175897,
-                 "y":1600.81365377917
+                 "x":622.279,
+                 "y":1600.81
+                }, 
+                {
+                 "gid":95,
+                 "height":32,
+                 "id":4,
+                 "name":"NPC",
+                 "properties":
+                    {
+                     "group":"NPCs",
+                     "id":"0",
+                     "texture":"NPC1_spritesheet"
+                    },
+                 "propertytypes":
+                    {
+                     "group":"string",
+                     "id":"string",
+                     "texture":"string"
+                    },
+                 "rotation":0,
+                 "type":"NPC",
+                 "visible":true,
+                 "width":32,
+                 "x":610.103071233317,
+                 "y":1377.26258240875
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -120,7 +144,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":4,
+ "nextobjectid":5,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tileheight":32,

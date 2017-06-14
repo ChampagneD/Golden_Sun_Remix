@@ -1,0 +1,48 @@
+body {
+	padding: 0px;
+	margin: 0px;
+	background-color: black;
+  overflow: hidden;
+}
+.dialog {
+ text-align: center;
+ vertical-align: middle;
+ height: 60%;
+ display: none;
+ position: relative;
+}
+
+.selected{
+  color: yellow;
+}
+
+li{
+  color: white;
+  width: 100%;
+  padding-top: 9%;
+  height: 50px;
+  display: inline-block;
+  margin-bottom: 2%;
+  background-image: url(../assets/images/HUD/hudgraph.png);
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: 100% 100%;
+  font-size: 15px;
+}
+
+ul{
+  list-style-type: none;
+  text-align: center;
+  margin-right: 10%;
+}
+
+p{
+  color: white;
+  margin: 0%;
+  padding-top: 9%;
+  height: 15%;
+  background-image: url(../assets/images/HUD/hudgraph.png);
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: 90% 100%;
+}

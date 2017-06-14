@@ -3,10 +3,19 @@
         "rectangle_image": {"type": "image", "source": "assets/images/rectangle.png"},
         "grass_tile_image": {"type": "image", "source": "assets/images/grass_tile.png"},
         
-        "male_fighter_spritesheet": {"type": "spritesheet", "source": "assets/images/characters/fighter_m.png", "frame_width": 24, "frame_height": 32},
-        "female_mage_spritesheet": {"type": "spritesheet", "source": "assets/images/characters/mage_f.png", "frame_width": 24, "frame_height": 32},
-        "female_ranger_spritesheet": {"type": "spritesheet", "source": "assets/images/characters/ranger_f.png", "frame_width": 24, "frame_height": 32},
-        
+        "male_fighter_spritesheet": {"type": "spritesheet", "source": "assets/images/Isaac_Battle.png", "frame_width": 64, "frame_height": 64},
+        "female_mage_spritesheet": {"type": "spritesheet", "source": "assets/images/Sheba_Battle.png", "frame_width": 64, "frame_height": 64},
+        "female_ranger_spritesheet": {"type": "spritesheet", "source": "assets/images/Jenna_Battle.png", "frame_width": 64, "frame_height": 64},
+
+        "Meteor": {"type": "spritesheet", "source": "assets/images/spell_animations/MeteorSpell.png", "frame_width": 256, "frame_height": 256, "frames": 191},
+        "DemonFire": {"type": "spritesheet", "source": "assets/images/spell_animations/DemonFire.png", "frame_width": 128, "frame_height": 128, "frames": 56},
+        "Pyroclasm": {"type": "spritesheet", "source": "assets/images/spell_animations/Pyroclasm.png", "frame_width": 128, "frame_height": 128, "frames": 86},
+        "Purgatory": {"type": "spritesheet", "source": "assets/images/spell_animations/Purgatory.png", "frame_width": 128, "frame_height": 128, "frames": 52},
+        "Volcano": {"type": "spritesheet", "source": "assets/images/spell_animations/Volcano.png", "frame_width": 128, "frame_height": 128, "frames": 86},
+        "EarthForce": {"type": "spritesheet", "source": "assets/images/spell_animations/EarthForce.png", "frame_width": 128, "frame_height": 128, "frames": 76},
+        "Frost": {"type": "spritesheet", "source": "assets/images/spell_animations/Frost.png", "frame_width": 128, "frame_height": 128, "frames": 123},
+        "Acheron": {"type": "spritesheet", "source": "assets/images/spell_animations/Acheron.png", "frame_width": 128, "frame_height": 128, "frames": 94},
+
         "bat_spritesheet": {"type": "spritesheet", "source": "assets/images/monsters/bat.png", "frame_width": 128, "frame_height": 128},
         "scorpion_spritesheet": {"type": "spritesheet", "source": "assets/images/monsters/scorpion.png", "frame_width": 64, "frame_height": 64},
         "lizard_spritesheet": {"type": "spritesheet", "source": "assets/images/monsters/stygian_lizard.png", "frame_width": 192, "frame_height": 192}

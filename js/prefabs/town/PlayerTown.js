@@ -40,6 +40,11 @@ RPG.PlayerTown.prototype.update = function () {
     this.game_state.game.physics.arcade.collide(this, this.game_state.layers.collision_back);
     this.game_state.game.physics.arcade.collide(this, this.game_state.layers.collision_front);
 
+    this.windowHeight = ($(window).height()/3.5);
+    this.windowWidth = ($(window).width()/3);
+
+    $(".dialog").css({"width": this.windowWidth, "position": "absolute", "top": "35%", "left": "35%"});
+
     this.cursors.inventory.onDown.add(this.InventoryMenu, this)
 
     if (this.cursors.left.isDown && this.cursors.up.isDown){

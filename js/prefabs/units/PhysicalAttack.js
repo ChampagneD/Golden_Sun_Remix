@@ -3,6 +3,7 @@ var RPG = RPG || {};
 RPG.PhysicalAttack = function (game_state, name, position, properties) {
     "use strict";
     RPG.Attack.call(this, game_state, name, position, properties);
+
 };  
 
 RPG.PhysicalAttack.prototype = Object.create(RPG.Attack.prototype);
@@ -27,29 +28,58 @@ RPG.PhysicalAttack.prototype.hit = function (target) {
     this.game_state.enemy_turn = false;
 
     function moveCompletePlayer(){
-        this.game_state.current_unit.body.moveTo(200, 50, Phaser.ANGLE_RIGHT);
+        this.game_state.current_unit.body.moveTo(450, 200, Phaser.ANGLE_RIGHT);
     }
     function moveCompleteEnemy(){
-        this.game_state.current_unit.body.moveTo(200, 50, Phaser.ANGLE_LEFT);
+        this.game_state.current_unit.body.moveTo(450, 200, Phaser.ANGLE_LEFT);
     }
 
     switch(this.game_state.current_unit.name) {
         case "fighter":
-            this.game_state.current_unit.body.moveTo(200, 50, Phaser.ANGLE_LEFT)
+
+            this.game_state.allow_attack = false;
+
+            this.game_state.current_unit.body.moveTo(450, 200, Phaser.ANGLE_LEFT);
             this.game_state.current_unit.body.onMoveComplete.addOnce(moveCompletePlayer, this);
-            break;
+
+            this.game_state.current_unit.resetFrame = function(){
+                this.frame = 9;
+            }
+
+            this.AttackAnimation = this.game_state.current_unit.animations.play("PhysicalAttack");
+            this.AttackAnimation.onComplete.add(this.game_state.current_unit.resetFrame, this.game_state.current_unit);
 
         case "mage":
-            this.game_state.current_unit.body.moveTo(200, 50, Phaser.ANGLE_LEFT)
+
+            this.game_state.allow_attack = false;
+
+            this.game_state.current_unit.body.moveTo(450, 200, Phaser.ANGLE_LEFT);
             this.game_state.current_unit.body.onMoveComplete.addOnce(moveCompletePlayer, this);
+
+            this.game_state.current_unit.resetFrame = function(){
+                this.frame = 9;
+            }
+
+            this.AttackAnimation = this.game_state.current_unit.animations.play("PhysicalAttack");
+            this.AttackAnimation.onComplete.add(this.game_state.current_unit.resetFrame, this.game_state.current_unit);
             break;
 
         case "ranger":
-            this.game_state.current_unit.body.moveTo(200, 50, Phaser.ANGLE_LEFT);
+
+            this.game_state.allow_attack = false;
+
+            this.game_state.current_unit.body.moveTo(450, 200, Phaser.ANGLE_LEFT);
             this.game_state.current_unit.body.onMoveComplete.addOnce(moveCompletePlayer,this);
+
+            this.game_state.current_unit.resetFrame = function(){
+                this.frame = 9;
+            }
+
+            this.AttackAnimation = this.game_state.current_unit.animations.play("PhysicalAttack");
+            this.AttackAnimation.onComplete.add(this.game_state.current_unit.resetFrame, this.game_state.current_unit);
             break;
         default: 
-            this.game_state.current_unit.body.moveTo(200, 50, Phaser.ANGLE_RIGHT)
+            this.game_state.current_unit.body.moveTo(450, 200, Phaser.ANGLE_RIGHT)
             this.game_state.current_unit.body.onMoveComplete.addOnce(moveCompleteEnemy,this);
             break;
         

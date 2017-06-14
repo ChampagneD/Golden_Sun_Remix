@@ -6,4 +6,4 @@ game.state.add("LoadingState", new RPG.LoadingState());
 game.state.add("WorldState", new RPG.WorldState());
 game.state.add("TownState", new RPG.TownState());
 game.state.add("BattleState", new RPG.BattleState());
-game.state.start("BootState", true, false, "assets/levels/Altin.json", "TownState", {});
+game.state.start("BootState", true, false, "assets/levels/Altin.json", "TownState", {}, "assets/Dialogue/DialogueAltin.json");

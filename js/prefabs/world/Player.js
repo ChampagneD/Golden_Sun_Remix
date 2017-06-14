@@ -57,7 +57,7 @@ RPG.Player.prototype.update = function () {
     this.game_state.game.physics.arcade.collide(this, this.game_state.layers.collision_back);
     this.game_state.game.physics.arcade.collide(this, this.game_state.layers.collision_front);
 
-    //this.battleProbability();
+    this.battleProbability();
 
     this.cursors.inventory.onDown.add(this.InventoryMenu, this)
 
@@ -137,7 +137,7 @@ RPG.Player.prototype.battleProbability = function(){
         this.player_previous_tile_pos.y = this.player_tile_pos.y;
 
         this.spawn_chance = this.game_state.game.rnd.frac();
-        if (this.spawn_chance <= 0.08) {
+        if (this.spawn_chance <= 1) {
             this.spawn_chance = this.game_state.game.rnd.frac();
             // check if the enemy spawn probability is less than the generated random number for each spawn
             for (this.encounter_index = 0; this.encounter_index < this.game_state.level_data.enemy_encounters.length; this.encounter_index += 1) {

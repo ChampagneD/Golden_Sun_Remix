@@ -42,7 +42,7 @@ RPG.WorldState.prototype.init = function (level_data, extra_parameters) {
             "properties": {
                 "texture": "male_fighter_spritesheet",
                 "group": "player_units",
-                "frame": 10,
+                "frame": 9,
                 "stats": {
                     "attack": 20,
                     "magic_attack": 5,
@@ -75,7 +75,7 @@ RPG.WorldState.prototype.init = function (level_data, extra_parameters) {
             "properties": {
                 "texture": "female_mage_spritesheet",
                 "group": "player_units",
-                "frame": 10,
+                "frame": 9,
                 "stats": {
                     "attack": 5,
                     "magic_attack": 20,
@@ -108,7 +108,7 @@ RPG.WorldState.prototype.init = function (level_data, extra_parameters) {
             "properties": {
                 "texture": "female_ranger_spritesheet",
                 "group": "player_units",
-                "frame": 10,
+                "frame": 9,
                 "stats": {
                     "attack": 10,
                     "magic_attack": 10,
@@ -123,6 +123,7 @@ RPG.WorldState.prototype.init = function (level_data, extra_parameters) {
                 },
                 "spells": {
                     "destruction_aura2": {
+                        "name": "meteor",
                         "text": "destruction\naura2",
                         "MANA_COST": 30,
                         "damage": 50
@@ -185,7 +186,6 @@ RPG.WorldState.prototype.create = function () {
     }
     
     // if we came from BattleState, move the player to the previous position
-    console.log(this.player_position);
     if (this.player_position) {
         this.prefabs.player.reset(this.player_position.x, this.player_position.y);
     }
