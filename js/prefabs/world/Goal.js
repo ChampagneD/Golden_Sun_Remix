@@ -25,11 +25,15 @@ RPG.Goal.prototype.update = function () {
 
 RPG.Goal.prototype.reach_goal = function () {
     "use strict";
+
+    this.game_state.sound.stopAll();
+
     // start the next level
     if (this.nextState != "WorldState") {
         console.log(this.game_state.prefabs);
         this.game_state.player_position = {x: this.game_state.prefabs.player.position.x + 32, y: this.game_state.prefabs.player.position.y}
     }
-    this.game_state.game.state.start("BootState", false, false, this.town, this.nextState, {party_data: this.game_state.party_data, inventory: this.game_state.inventory});
+
+    this.game_state.game.state.start("BootState", false, false, this.town, this.nextState, {party_data: this.game_state.party_data, inventory: this.game_state.inventory}, this.game_state.dialogue_file);
 };
 

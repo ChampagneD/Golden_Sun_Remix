@@ -3,7 +3,7 @@ var RPG = RPG || {};
 RPG.TextPrefab = function (game_state, name, position, properties) {
     "use strict";
     Phaser.Text.call(this, game_state.game, position.x, position.y, properties.text, properties.style);
-    
+    console.log(this);
     this.game_state = game_state;
     
     this.name = name;

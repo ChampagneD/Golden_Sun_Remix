@@ -22,8 +22,17 @@ RPG.EnemyMenuItem.prototype.select = function () {
 
 RPG.EnemyMenuItem.prototype.unSelect = function () {
     this.game_state.prefabs.enemy_units_menu.disable();
-    this.game_state.prefabs.spell_menu.menu_items.forEach(function(items){
+    
+    if (this.game_state.prefabs.spell_menu) {
+        this.game_state.prefabs.spell_menu.menu_items.forEach(function(items){
             items.kill();
-    });
+        });
+    }
+    if (this.game_state.prefabs.djinn_menu) {
+        this.game_state.prefabs.djinn_menu.menu_items.forEach(function(items){
+            items.kill();
+        });
+    }
+
     this.game_state.prefabs.actions_menu.enable();
 }

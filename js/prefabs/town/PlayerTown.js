@@ -27,9 +27,11 @@ RPG.PlayerTown = function (game_state, name, position, properties) {
 
     this.game_state.game.camera.follow(this);
 
+    this.Isaac_Footstep = this.game_state.game.add.audio('Footstep_SFX', 1, false);
+
     this.inventory_state = false;
 
-    this.cursors = this.game_state.game.input.keyboard.addKeys({'up': Phaser.KeyCode.Z, 'down': Phaser.KeyCode.S, 'left': Phaser.KeyCode.Q, 'right': Phaser.KeyCode.D, 'inventory': Phaser.KeyCode.I});
+    this.game_state.cursors = this.game_state.game.input.keyboard.addKeys({'up': Phaser.KeyCode.Z, 'down': Phaser.KeyCode.S, 'left': Phaser.KeyCode.Q, 'right': Phaser.KeyCode.D, 'inventory': Phaser.KeyCode.I});
 };
 
 RPG.PlayerTown.prototype = Object.create(RPG.Prefab.prototype);
@@ -45,63 +47,80 @@ RPG.PlayerTown.prototype.update = function () {
 
     $(".dialog").css({"width": this.windowWidth, "position": "absolute", "top": "35%", "left": "35%"});
 
-    this.cursors.inventory.onDown.add(this.InventoryMenu, this)
+    this.game_state.cursors.inventory.onDown.add(this.InventoryMenu, this)
 
-    if (this.cursors.left.isDown && this.cursors.up.isDown){
+    if (this.game_state.cursors.left.isDown && this.game_state.cursors.up.isDown){
         // move left
         this.body.velocity.y = -this.walking_speed;
         // move up
         this.body.velocity.x = -this.walking_speed;
         this.animations.play("walking_up_left");
+        this.Isaac_Footstep.play('', 0, 0.5, false, false);
+        this.Isaac_Footstep._sound.playbackRate.value = 2;
+        
 
-    } else if (this.cursors.right.isDown && this.cursors.up.isDown){
+    } else if (this.game_state.cursors.right.isDown && this.game_state.cursors.up.isDown){
         // move right
         this.body.velocity.y = -this.walking_speed;
         // move up
         this.body.velocity.x = +this.walking_speed;
         this.animations.play("walking_up_right");
+        this.Isaac_Footstep.play('', 0, 0.5, false, false);
+        this.Isaac_Footstep._sound.playbackRate.value = 2;
 
-    } else if (this.cursors.left.isDown && this.cursors.down.isDown){
+    } else if (this.game_state.cursors.left.isDown && this.game_state.cursors.down.isDown){
         // move left
         this.body.velocity.x = -this.walking_speed;
         // move down
         this.body.velocity.y = +this.walking_speed;
         this.animations.play("walking_down_left");
+        this.Isaac_Footstep.play('', 0, 0.5, false, false);
+        this.Isaac_Footstep._sound.playbackRate.value = 2;
 
-    } else if (this.cursors.right.isDown && this.cursors.down.isDown){
+    } else if (this.game_state.cursors.right.isDown && this.game_state.cursors.down.isDown){
         // move right
         this.body.velocity.x = +this.walking_speed;
         // move down
         this.body.velocity.y = +this.walking_speed;
         this.animations.play("walking_down_right");
+        this.Isaac_Footstep.play('', 0, 0.5, false, false);
+        this.Isaac_Footstep._sound.playbackRate.value = 2;
 
-    } else if (this.cursors.left.isDown && this.body.velocity.x <= 0) {
+    } else if (this.game_state.cursors.left.isDown && this.body.velocity.x <= 0) {
         // move left
         this.body.velocity.x = -this.walking_speed;
         if (this.body.velocity.y === 0) {
             this.animations.play("walking_left");
+            this.Isaac_Footstep.play('', 0, 0.5, false, false);
+            this.Isaac_Footstep._sound.playbackRate.value = 2;
         }
-    } else if (this.cursors.right.isDown && this.body.velocity.x >= 0) {
+    } else if (this.game_state.cursors.right.isDown && this.body.velocity.x >= 0) {
         // move right
         this.body.velocity.x = +this.walking_speed;
         if (this.body.velocity.y === 0) {
             this.animations.play("walking_right");
+            this.Isaac_Footstep.play('', 0, 0.5, false, false);
+            this.Isaac_Footstep._sound.playbackRate.value = 2;
         }
     } else {
         this.body.velocity.x = 0;
     }
 
-    if (this.cursors.up.isDown && this.body.velocity.y <= 0) {
+    if (this.game_state.cursors.up.isDown && this.body.velocity.y <= 0) {
         // move up
         this.body.velocity.y = -this.walking_speed;
         if (this.body.velocity.x === 0) {
-            this.animations.play("walking_up");
+            this.Isaac_Footstep.play('', 0, 0.5, false, false);
+            this.Isaac_Footstep._sound.playbackRate.value = 2;
+            this.animations.play("walking_up");      
         }
-    } else if (this.cursors.down.isDown && this.body.velocity.y >= 0) {
+    } else if (this.game_state.cursors.down.isDown && this.body.velocity.y >= 0) {
         // move down
         this.body.velocity.y = +this.walking_speed;
         if (this.body.velocity.x === 0) {
             this.animations.play("walking_down");
+            this.Isaac_Footstep.play('', 0, 0.5, false, false);
+            this.Isaac_Footstep._sound.playbackRate.value = 2;
         }
     } else {
         this.body.velocity.y = 0;
@@ -149,6 +168,5 @@ RPG.PlayerTown.prototype.InventoryMenu = function(){
     } else { 
         this.inventory_state = false;
         this.game_state.groups.inventory.destroy(true, true);
-        console.log(this.game_state.groups)
     }
 };

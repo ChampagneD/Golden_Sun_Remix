@@ -4,6 +4,8 @@
         "inventory_bg": {"type": "image", "source": "assets/images/rectangle.png"},
         "male_fighter_spritesheet": {"type": "spritesheet", "source": "assets/images/characters/Isacc.png", "frame_width": 32, "frame_height": 32, "margin": 11 ,"spacing": 23},
         "goal_image": { "type": "image", "source": "assets/images/goal_transparent.png" },
+        "World_Map_Theme": {"type": "audio", "source": "assets/SFX/World_Map_Theme.mp3"},
+        "Footstep_SFX": {"type": "audio", "source": "assets/SFX/Isaac_Footstep.wav"},
         "level_tilemap": {"type": "tilemap", "source": "assets/maps/worldmap.json"}
     },
     "groups": [
@@ -17,16 +19,17 @@
         "tilesets": ["map_tileset", "male_fighter_spritesheet"]
     },
     "enemy_encounters": [
-        {"probability": 0.3,
+        {"probability": 0.1,
          "enemy_data": {
-            "lizard1": {
+            "serpent": {
                 "type": "enemy_unit",
                 "position": {"x": 100, "y": 200},
                 "properties": {
-                    "texture": "lizard_spritesheet",
+                    "texture": "Serpent_spritesheet",
+                    "frame": 0,
                     "group": "enemy_units",
                     "stats": {
-                        "attack": 30,
+                        "attack": 35,
                         "defense": 10,
                         "health": 50,
                         "speed": 20
@@ -39,31 +42,33 @@
              "items": [{"type": "potion", "properties": {"group": "items", "health_power": 50}}]
          }
         },
-        {"probability": 0.5,
+        {"probability": 0.3,
          "enemy_data": {
-            "bat1": {
+            "Kobold1": {
                 "type": "enemy_unit",
                 "position": {"x": 100, "y": 170},
                 "properties": {
-                    "texture": "bat_spritesheet",
+                    "texture": "Kobold_spritesheet",
+                    "frame": 0,
                     "group": "enemy_units",
                     "stats": {
-                        "attack": 10,
-                        "defense": 1,
+                        "attack": 20,
+                        "defense": 6,
                         "health": 30,
                         "speed": 20
                     }
                 }
             },
-            "bat2": {
+            "Kobold2": {
                 "type": "enemy_unit",
                 "position": {"x": 100, "y": 250},
                 "properties": {
-                    "texture": "bat_spritesheet",
+                    "texture": "Kobold_spritesheet",
+                    "frame": 0,
                     "group": "enemy_units",
                     "stats": {
-                        "attack": 10,
-                        "defense": 1,
+                        "attack": 20,
+                        "defense": 6,
                         "health": 30,
                         "speed": 20
                     }
@@ -75,13 +80,14 @@
              "items": [{"type": "potion", "properties": {"group": "items", "health_power": 50}}]
          }
         },
-        {"probability": 1.0,
+        {"probability": 0.5,
          "enemy_data": {
-            "scorpion1": {
+            "LizardMan1": {
                 "type": "enemy_unit",
                 "position": {"x": 100, "y": 80},
                 "properties": {
-                    "texture": "scorpion_spritesheet",
+                    "texture": "LizardMan_spritesheet",
+                    "frame": 0,
                     "group": "enemy_units",
                     "stats": {
                         "attack": 15,
@@ -91,11 +97,12 @@
                     }
                 }
             },
-            "scorpion2": {
+            "LizardMan2": {
                 "type": "enemy_unit",
                 "position": {"x": 100, "y": 190},
                 "properties": {
-                    "texture": "scorpion_spritesheet",
+                    "texture": "LizardMan_spritesheet",
+                    "frame": 0,
                     "group": "enemy_units",
                     "stats": {
                         "attack": 15,
@@ -105,16 +112,55 @@
                     }
                 }
             },
-            "scorpion3": {
+            "LizardMan3": {
                 "type": "enemy_unit",
                 "position": {"x": 100, "y": 290},
                 "properties": {
-                    "texture": "scorpion_spritesheet",
+                    "texture": "LizardMan_spritesheet",
+                    "frame": 0,
                     "group": "enemy_units",
                     "stats": {
                         "attack": 15,
                         "defense": 1,
                         "health": 20,
+                        "speed": 20
+                    }
+                }
+            }
+         },
+         "reward": {
+            "experience": 100,
+             "items": [{"type": "potion", "properties": {"group": "items", "health_power": 50}}]
+         }
+        },
+        {"probability": 0.7,
+         "enemy_data": {
+            "Orc1": {
+                "type": "enemy_unit",
+                "position": {"x": 100, "y": 170},
+                "properties": {
+                    "texture": "Kobold_spritesheet",
+                    "frame": 0,
+                    "group": "enemy_units",
+                    "stats": {
+                        "attack": 10,
+                        "defense": 1,
+                        "health": 30,
+                        "speed": 20
+                    }
+                }
+            },
+            "Orc2": {
+                "type": "enemy_unit",
+                "position": {"x": 100, "y": 250},
+                "properties": {
+                    "texture": "Kobold_spritesheet",
+                    "frame": 0,
+                    "group": "enemy_units",
+                    "stats": {
+                        "attack": 10,
+                        "defense": 1,
+                        "health": 30,
                         "speed": 20
                     }
                 }

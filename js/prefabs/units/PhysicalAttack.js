@@ -42,26 +42,15 @@ RPG.PhysicalAttack.prototype.hit = function (target) {
             this.game_state.current_unit.body.moveTo(450, 200, Phaser.ANGLE_LEFT);
             this.game_state.current_unit.body.onMoveComplete.addOnce(moveCompletePlayer, this);
 
-            this.game_state.current_unit.resetFrame = function(){
-                this.frame = 9;
-            }
-
             this.AttackAnimation = this.game_state.current_unit.animations.play("PhysicalAttack");
-            this.AttackAnimation.onComplete.add(this.game_state.current_unit.resetFrame, this.game_state.current_unit);
 
         case "mage":
 
             this.game_state.allow_attack = false;
 
             this.game_state.current_unit.body.moveTo(450, 200, Phaser.ANGLE_LEFT);
-            this.game_state.current_unit.body.onMoveComplete.addOnce(moveCompletePlayer, this);
-
-            this.game_state.current_unit.resetFrame = function(){
-                this.frame = 9;
-            }
 
             this.AttackAnimation = this.game_state.current_unit.animations.play("PhysicalAttack");
-            this.AttackAnimation.onComplete.add(this.game_state.current_unit.resetFrame, this.game_state.current_unit);
             break;
 
         case "ranger":
@@ -71,16 +60,14 @@ RPG.PhysicalAttack.prototype.hit = function (target) {
             this.game_state.current_unit.body.moveTo(450, 200, Phaser.ANGLE_LEFT);
             this.game_state.current_unit.body.onMoveComplete.addOnce(moveCompletePlayer,this);
 
-            this.game_state.current_unit.resetFrame = function(){
-                this.frame = 9;
-            }
-
             this.AttackAnimation = this.game_state.current_unit.animations.play("PhysicalAttack");
-            this.AttackAnimation.onComplete.add(this.game_state.current_unit.resetFrame, this.game_state.current_unit);
             break;
         default: 
             this.game_state.current_unit.body.moveTo(450, 200, Phaser.ANGLE_RIGHT)
             this.game_state.current_unit.body.onMoveComplete.addOnce(moveCompleteEnemy,this);
+
+            this.AttackAnimation = this.game_state.current_unit.animations.play("PhysicalAttack");
+
             break;
         
     }
@@ -99,6 +86,9 @@ RPG.PhysicalAttack.prototype.hit = function (target) {
             break;
         
     }
+
+    this.game_state.Hit.play();
+    this.game_state.Damage.play();
 
     // apply damage
     target.receive_damage(damage);

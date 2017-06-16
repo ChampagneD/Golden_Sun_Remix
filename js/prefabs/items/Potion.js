@@ -15,6 +15,8 @@ RPG.Potion.prototype.use = function (target) {
     RPG.Item.prototype.use.call(this);
     target.stats.health += this.health_power;
 
+    this.game_state.Heal.play();
+
     //The player health increase
     switch(target.name) {
         case "fighter":

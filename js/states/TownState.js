@@ -10,21 +10,23 @@ RPG.TownState = function () {
         "NPC": RPG.NPC.prototype.constructor
     };
 
-    this.TEXT_STYLE = {font: "14px Arial", fill: "#FFFFFF"};
+    this.TEXT_STYLE = {font: "14px Golden_Sun_Font", fill: "#FFFFFF"};
 
 };
 
 RPG.TownState.prototype = Object.create(Phaser.State.prototype);
 RPG.TownState.prototype.constructor = RPG.TownState;
 
-RPG.TownState.prototype.init = function (level_data, extra_parameters, dialogue_data) {
+RPG.TownState.prototype.init = function (level_data, extra_parameters, dialogue_data, dialogue_file) {
     "use strict";
     var tileset_index;
     this.level_data = this.level_data || level_data;
 
-    this.dialogue_data = dialogue_data;
+    this.Val_Theme = game.add.audio('Vale_Theme', 1, true);
+    this.Val_Theme.play();
 
-    console.log(this.dialogue_data)
+    this.dialogue_data = dialogue_data;
+    this.dialogue_file = dialogue_file;
 
     this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
     this.scale.pageAlignHorizontally = true;
@@ -50,7 +52,7 @@ RPG.TownState.prototype.init = function (level_data, extra_parameters, dialogue_
             "properties": {
                 "texture": "male_fighter_spritesheet",
                 "group": "player_units",
-                "frame": 9,
+                "frame": 0,
                 "stats": {
                     "attack": 20,
                     "magic_attack": 5,
@@ -82,6 +84,13 @@ RPG.TownState.prototype.init = function (level_data, extra_parameters, dialogue_
                         "MANA_COST": 15,
                         "damage": 20
                     }
+                },
+                "djinns": {
+                    "Jupiter": {
+                        "name": "Jupiter",
+                        "text": "Jupiter",
+                        "damage": 30
+                    }
                 }
             }
         },
@@ -91,7 +100,7 @@ RPG.TownState.prototype.init = function (level_data, extra_parameters, dialogue_
             "properties": {
                 "texture": "female_mage_spritesheet",
                 "group": "player_units",
-                "frame": 9,
+                "frame": 0,
                 "stats": {
                     "attack": 5,
                     "magic_attack": 20,
@@ -138,7 +147,7 @@ RPG.TownState.prototype.init = function (level_data, extra_parameters, dialogue_
             "properties": {
                 "texture": "female_ranger_spritesheet",
                 "group": "player_units",
-                "frame": 9,
+                "frame": 0,
                 "stats": {
                     "attack": 10,
                     "magic_attack": 10,

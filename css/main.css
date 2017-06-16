@@ -1,8 +1,21 @@
+@font-face {
+    font-family: Golden_Sun_Font;
+    src: url(../font/Golden-Sun.ttf);
+}
+
+.fontLoader{
+  position: absolute;
+  left: -1000px;
+  visibility: hidden;
+}
+
 body {
 	padding: 0px;
 	margin: 0px;
 	background-color: black;
   overflow: hidden;
+  font-family: Golden_Sun_Font;
+  font-size: 1em;
 }
 .dialog {
  text-align: center;
@@ -27,7 +40,6 @@ li{
   background-repeat: no-repeat;
   background-position: 50% 0;
   background-size: 100% 100%;
-  font-size: 15px;
 }
 
 ul{

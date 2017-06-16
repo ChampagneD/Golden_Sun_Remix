@@ -13,10 +13,16 @@ RPG.WorldState = function () {
 RPG.WorldState.prototype = Object.create(Phaser.State.prototype);
 RPG.WorldState.prototype.constructor = RPG.WorldState;
 
-RPG.WorldState.prototype.init = function (level_data, extra_parameters) {
+RPG.WorldState.prototype.init = function (level_data, extra_parameters, dialogue_data, dialogue_file) {
     "use strict";
     var tileset_index;
+
+    this.World_Map_Theme = game.add.audio('World_Map_Theme', 1, true);
+    this.World_Map_Theme.play();
+
     this.level_data = this.level_data || level_data;
+    this.dialogue_data = dialogue_data;
+    this.dialogue_file = dialogue_file;
     
     this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
     this.scale.pageAlignHorizontally = true;

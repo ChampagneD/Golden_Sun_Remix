@@ -6,7 +6,7 @@ RPG.EnemyUnit = function (game_state, name, position, properties) {
     
     this.anchor.setTo(0.5);
     
-    this.scale.setTo(-1, 1);
+    this.scale.setTo(1.3, 1.3);
     
     this.attack = new RPG.PhysicalAttack(this.game_state, this.name + "_attack", {x: 0, y: 0}, {group: "attacks", owner_name: this.name});
 };

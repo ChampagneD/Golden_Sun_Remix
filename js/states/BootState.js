@@ -31,5 +31,5 @@ RPG.BootState.prototype.create = function () {
     dialogue_text = this.game.cache.getText("dialogue1");
     dialogue_data = JSON.parse(dialogue_text);
 
-    this.game.state.start("LoadingState", true, false, level_data, this.next_state, this.extra_parameters, dialogue_data);
+    this.game.state.start("LoadingState", true, false, level_data, this.next_state, this.extra_parameters, dialogue_data, this.dialogue_file);
 };

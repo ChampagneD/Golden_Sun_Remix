@@ -46,6 +46,8 @@ RPG.Player = function (game_state, name, position, properties) {
 
     this.inventory_state = false;
 
+    this.Isaac_Footstep = this.game_state.game.add.audio('Footstep_SFX', 1, false);
+
     this.cursors = this.game_state.game.input.keyboard.addKeys({'up': Phaser.KeyCode.Z, 'down': Phaser.KeyCode.S, 'left': Phaser.KeyCode.Q, 'right': Phaser.KeyCode.D, 'inventory': Phaser.KeyCode.I});
 };
 
@@ -67,6 +69,8 @@ RPG.Player.prototype.update = function () {
         // move up
         this.body.velocity.x = -this.walking_speed;
         this.animations.play("walking_up_left");
+        this.Isaac_Footstep.play('', 0, 0.5, false, false);
+        this.Isaac_Footstep._sound.playbackRate.value = 2;
 
     } else if (this.cursors.right.isDown && this.cursors.up.isDown){
         // move right
@@ -74,6 +78,8 @@ RPG.Player.prototype.update = function () {
         // move up
         this.body.velocity.x = +this.walking_speed;
         this.animations.play("walking_up_right");
+        this.Isaac_Footstep.play('', 0, 0.5, false, false);
+        this.Isaac_Footstep._sound.playbackRate.value = 2;
 
     } else if (this.cursors.left.isDown && this.cursors.down.isDown){
         // move left
@@ -81,6 +87,8 @@ RPG.Player.prototype.update = function () {
         // move down
         this.body.velocity.y = +this.walking_speed;
         this.animations.play("walking_down_left");
+        this.Isaac_Footstep.play('', 0, 0.5, false, false);
+        this.Isaac_Footstep._sound.playbackRate.value = 2;
 
     } else if (this.cursors.right.isDown && this.cursors.down.isDown){
         // move right
@@ -88,18 +96,24 @@ RPG.Player.prototype.update = function () {
         // move down
         this.body.velocity.y = +this.walking_speed;
         this.animations.play("walking_down_right");
+        this.Isaac_Footstep.play('', 0, 0.5, false, false);
+        this.Isaac_Footstep._sound.playbackRate.value = 2;
 
     } else if (this.cursors.left.isDown && this.body.velocity.x <= 0) {
         // move left
         this.body.velocity.x = -this.walking_speed;
         if (this.body.velocity.y === 0) {
             this.animations.play("walking_left");
+            this.Isaac_Footstep.play('', 0, 0.5, false, false);
+            this.Isaac_Footstep._sound.playbackRate.value = 2;
         }
     } else if (this.cursors.right.isDown && this.body.velocity.x >= 0) {
         // move right
         this.body.velocity.x = +this.walking_speed;
         if (this.body.velocity.y === 0) {
             this.animations.play("walking_right");
+            this.Isaac_Footstep.play('', 0, 0.5, false, false);
+        this.Isaac_Footstep._sound.playbackRate.value = 2;
         }
     } else {
         this.body.velocity.x = 0;
@@ -110,12 +124,16 @@ RPG.Player.prototype.update = function () {
         this.body.velocity.y = -this.walking_speed;
         if (this.body.velocity.x === 0) {
             this.animations.play("walking_up");
+            this.Isaac_Footstep.play('', 0, 0.5, false, false);
+            this.Isaac_Footstep._sound.playbackRate.value = 2;
         }
     } else if (this.cursors.down.isDown && this.body.velocity.y >= 0) {
         // move down
         this.body.velocity.y = +this.walking_speed;
         if (this.body.velocity.x === 0) {
             this.animations.play("walking_down");
+            this.Isaac_Footstep.play('', 0, 0.5, false, false);
+            this.Isaac_Footstep._sound.playbackRate.value = 2;
         }
     } else {
         this.body.velocity.y = 0;
@@ -137,7 +155,7 @@ RPG.Player.prototype.battleProbability = function(){
         this.player_previous_tile_pos.y = this.player_tile_pos.y;
 
         this.spawn_chance = this.game_state.game.rnd.frac();
-        if (this.spawn_chance <= 1) {
+        if (this.spawn_chance <= 0.08) {
             this.spawn_chance = this.game_state.game.rnd.frac();
             // check if the enemy spawn probability is less than the generated random number for each spawn
             for (this.encounter_index = 0; this.encounter_index < this.game_state.level_data.enemy_encounters.length; this.encounter_index += 1) {
@@ -146,7 +164,8 @@ RPG.Player.prototype.battleProbability = function(){
                     // save current player position for later
                     this.game_state.player_position = this.game_state.prefabs.player.position;
                     // call battle state
-                    this.game_state.game.state.start("BootState", false, false, "assets/levels/battle.json", "BattleState", {encounter: this.enemy_encounter, party_data: this.game_state.party_data, inventory: this.game_state.inventory});
+                    this.game_state.sound.stopAll();
+                    this.game_state.game.state.start("BootState", false, false, "assets/levels/battle.json", "BattleState", {encounter: this.enemy_encounter, party_data: this.game_state.party_data, inventory: this.game_state.inventory}, this.game_state.dialogue_file);
                     break;
                 }
             }
@@ -179,6 +198,7 @@ RPG.Player.prototype.InventoryMenu = function(){
                                     {text: "Fighter", item_constructor: RPG.MenuItem.prototype.constructor},
                                     {text: "Mage", item_constructor: RPG.MenuItem.prototype.constructor},
                                     {text: "Ranger", item_constructor: RPG.MenuItem.prototype.constructor},
+                                    {text: "Djinns", item_constructor: RPG.MenuItem.prototype.constructor},
                                     {text: "items", item_constructor: RPG.MenuItem.prototype.constructor}
                                 ];
 

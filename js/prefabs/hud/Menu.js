@@ -2,7 +2,7 @@ var RPG = RPG || {};
 
 RPG.Menu = function (game_state, name, position, properties) {
     "use strict";
-
+    
     RPG.Prefab.call(this, game_state, name, position, properties);
     
     this.visible = false;
@@ -24,6 +24,7 @@ RPG.Menu.prototype.process_input = function (event) {
         if (this.current_item_index > 0) {
             if (this.game_state.allow_attack == true) {
                 // navigate to previous item
+                this.game_state.Menu_Move.play();
                 this.move_selection(this.current_item_index - 1);
             }
         }
@@ -32,6 +33,7 @@ RPG.Menu.prototype.process_input = function (event) {
         if (this.current_item_index < this.menu_items.length - 1) {
             if (this.game_state.allow_attack == true) {
                 // navigate to next item
+                this.game_state.Menu_Move.play();
                 this.move_selection(this.current_item_index + 1);
             }
         }
@@ -39,12 +41,16 @@ RPG.Menu.prototype.process_input = function (event) {
     case Phaser.Keyboard.D:
         if (this.menu_items[this.current_item_index].unSelect) {
             if (this.game_state.allow_attack == true) {
+                // navigate back to action choice
+                this.game_state.Menu_Negative.play();
                 this.menu_items[this.current_item_index].unSelect();
             }
         }
         break;
     case Phaser.Keyboard.SPACEBAR:
         if (this.game_state.allow_attack == true) {
+            //validate the choice then go to next item
+            this.game_state.Menu_Positive.play();
             this.menu_items[this.current_item_index].select();
         }
         break;

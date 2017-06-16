@@ -5,6 +5,9 @@
         "male_fighter_spritesheet": {"type": "spritesheet", "source": "assets/images/characters/Isacc.png", "frame_width": 32, "frame_height": 32, "margin": 11 ,"spacing": 23},
         "goal_image": { "type": "image", "source": "assets/images/goal_transparent.png" },
         "NPC1_spritesheet": { "type": "image", "source": "assets/images/characters/NPC/NPC1.png"},
+        "Vale_Theme": {"type": "audio", "source": "assets/SFX/Vale_Theme.mp3"},
+        "NPC_SFX": {"type": "audio", "source": "assets/SFX/NPC.wav"},
+        "Footstep_SFX": {"type": "audio", "source": "assets/SFX/Isaac_Footstep.wav"},
         "level_tilemap": {"type": "tilemap", "source": "assets/maps/Altin.json"}
     },
     "groups": [

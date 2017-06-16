@@ -12,15 +12,18 @@ RPG.BattleState = function () {
         "inventory": RPG.Inventory.prototype.constructor
     };
     
-    this.TEXT_STYLE = {font: "14px Arial", fill: "#FFFFFF"};
+    this.TEXT_STYLE = {font: "14px Golden_Sun_Font", fill: "#FFFFFF"};
 };
 
 RPG.BattleState.prototype = Object.create(Phaser.State.prototype);
 RPG.BattleState.prototype.constructor = RPG.BattleState;
 
-RPG.BattleState.prototype.init = function (level_data, extra_parameters) {
+RPG.BattleState.prototype.init = function (level_data, extra_parameters, dialogue_data, dialogue_file) {
     "use strict";
+
     this.level_data = level_data;
+    this.dialogue_data = dialogue_data;
+    this.dialogue_file = dialogue_file;
     this.encounter = extra_parameters.encounter;
     this.party_data = extra_parameters.party_data;
     // receive the inventory from WorldState
@@ -31,6 +34,22 @@ RPG.BattleState.prototype.init = function (level_data, extra_parameters) {
     this.scale.pageAlignVertically = true;
 
     this.i = 0;
+
+    // Battle Theme
+    this.Battle_Theme = game.add.audio('Battle_Theme', 1, true);
+
+    // Menu SFX
+    this.Menu_Move = game.add.audio('Menu_Move', 1, false);
+    this.Menu_Negative = game.add.audio('Menu_Negative', 1, false);
+    this.Menu_Positive = game.add.audio('Menu_Positive', 1, false);
+
+    // Battle SFX
+    this.Hit = game.add.audio('Hit', 1, false);
+    this.Damage = game.add.audio('Damage', 1, false);
+    this.Heal = game.add.audio('Heal', 1, false);
+
+    this.Battle_Theme.play();
+
 };
 
 RPG.BattleState.prototype.preload = function () {
@@ -114,7 +133,7 @@ RPG.BattleState.prototype.init_hud = function () {
     var unit_index, player_unit_health;
     
     // show player actions
-    this.show_player_actions({x: 350, y: 370});
+    this.show_player_actions({x: 410, y: 370});
     
     // show player units
     this.show_units("player_units", {x: 550, y: 370}, RPG.PlayerMenuItem.prototype.constructor);
@@ -149,6 +168,7 @@ RPG.BattleState.prototype.show_player_actions = function (position) {
     // available actions
     actions = [{text: "Attack", item_constructor: RPG.AttackMenuItem.prototype.constructor},
                {text: "Magic", item_constructor: RPG.MagicAttackMenuItem.prototype.constructor},
+               {text: "Djinn", item_constructor: RPG.DjinnAttackMenuItem.prototype.constructor},
                {text: "Item", item_constructor: RPG.InventoryMenuItem.prototype.constructor}];
     actions_menu_items = [];
     action_index = 0;
@@ -192,7 +212,7 @@ RPG.BattleState.prototype.game_over = function () {
     this.damageMage = null;
     this.damageRanger = null;
 
-    this.game.state.start("BootState", true, false, "assets/levels/level1.json", "WorldState", {restart_position: true});
+    this.game.state.start("BootState", true, false, "assets/levels/level1.json", "WorldState", {restart_position: true}, this.dialogue_file);
 };
 
 RPG.BattleState.prototype.end_battle = function () {
@@ -214,5 +234,5 @@ RPG.BattleState.prototype.end_battle = function () {
     }, this);
     
     // go back to WorldState with the current party data
-    this.game.state.start("BootState", true, true, "assets/levels/level1.json", "WorldState", {party_data: this.party_data, inventory: this.prefabs.inventory});
+    this.game.state.start("BootState", true, true, "assets/levels/level1.json", "WorldState", {party_data: this.party_data, inventory: this.prefabs.inventory}, this.dialogue_file);
 };

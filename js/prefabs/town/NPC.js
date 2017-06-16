@@ -47,6 +47,10 @@ RPG.NPC.prototype.update = function () {
 RPG.NPC.prototype.show_dialogue = function ( id , callback) {
     "use strict";
 
+    this.game_state.game.sound.play("NPC_SFX", 0.6);
+
+    var NPC = this;
+
     if (callback) {
         var s;
 
@@ -104,8 +108,15 @@ RPG.NPC.prototype.show_dialogue = function ( id , callback) {
                         });
                     } else {
                         $( "body" ).off( "keydown");
+                        // enable player movement key
+                        for (cursors in NPC.game_state.cursors) {
+                            if (NPC.game_state.cursors.hasOwnProperty(cursors)) {
+                                    
+                                NPC.game_state.cursors[cursors].enabled = true;
+                            }
+                        }
                         $(".dialog").fadeOut('400', function() {
-                            return myObject.game_state.game.paused = false;
+                            return;
                         });      
                     }
                 }
@@ -170,8 +181,15 @@ RPG.NPC.prototype.show_dialogue = function ( id , callback) {
                         });
                     } else {
                         $( "body" ).off( "keydown");
+                        // enable player movement key
+                        for (cursors in NPC.game_state.cursors) {
+                            if (NPC.game_state.cursors.hasOwnProperty(cursors)) {
+                                    
+                                NPC.game_state.cursors[cursors].enabled = true;
+                            }
+                        }
                         $(".dialog").fadeOut('400', function() {
-                            return myObject.game_state.game.paused = false;
+                            return;
                         });      
                     }
                 }
@@ -179,8 +197,15 @@ RPG.NPC.prototype.show_dialogue = function ( id , callback) {
         });   
     }
 
-        this.game_state.game.paused = true;
+    // disable player movement key
+    var cursors;
 
+    for (cursors in this.game_state.cursors) {
+        if (this.game_state.cursors.hasOwnProperty(cursors)) {
+            
+            this.game_state.cursors[cursors].enabled = false;
+        }
+    }
 };
 
 
