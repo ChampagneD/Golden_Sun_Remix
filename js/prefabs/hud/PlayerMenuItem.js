@@ -42,41 +42,41 @@ RPG.PlayerMenuItem = function (game_state, name, position, properties) {
                                                         });
 
     switch(this._text) {
-        case "fighter":
+        case "Isaac":
             if (this.game_state.damageFighter) {
                 this.damageFighter = (this.game_state.damageFighter * 100) / this.game_state.PlayerMenuItem0.healthMax;
                 this.damageFighter = 100 - this.damageFighter;
                 this.player_unit_health.setPercent(this.damageFighter);
                 
             } 
-            if (this.game_state.party_data.fighter.properties.stats.mana) {
-                this.manaFighter = (this.game_state.party_data.fighter.properties.stats.mana * 100) / this.game_state.PlayerMenuItem0.manaMax;
+            if (this.game_state.party_data.Isaac.properties.stats.mana) {
+                this.manaFighter = (this.game_state.party_data.Isaac.properties.stats.mana * 100) / this.game_state.PlayerMenuItem0.manaMax;
                 this.game_state.PlayerMenuItem0.player_unit_mana.setPercent(this.manaFighter);
             }
             break;
 
-        case "mage":
+        case "Sheba":
             if (this.game_state.damageMage) {
                 this.damageMage = (this.game_state.damageMage * 100) / this.healthMax;
                 this.damageMage = 100 - this.damageMage;
                 this.player_unit_health.setPercent(this.damageMage);
                 
             }
-            if (this.game_state.party_data.mage.properties.stats.mana) {
-                this.manaMage = (this.game_state.party_data.mage.properties.stats.mana * 100) / this.game_state.PlayerMenuItem1.manaMax;
+            if (this.game_state.party_data.Sheba.properties.stats.mana) {
+                this.manaMage = (this.game_state.party_data.Sheba.properties.stats.mana * 100) / this.game_state.PlayerMenuItem1.manaMax;
                 this.game_state.PlayerMenuItem1.player_unit_mana.setPercent(this.manaMage);
             }
             break;
 
-        case "ranger":
+        case "Jenna":
             if (this.game_state.damageRanger) {
                 this.damageRanger = (this.game_state.damageRanger * 100) / this.healthMax;
                 this.damageRanger = 100 - this.damageRanger;
                 this.player_unit_health.setPercent(this.damageRanger);
                 
             }
-            if (this.game_state.party_data.ranger.properties.stats.mana) {
-                this.manaRanger = (this.game_state.party_data.ranger.properties.stats.mana * 100) / this.game_state.PlayerMenuItem2.manaMax;
+            if (this.game_state.party_data.Jenna.properties.stats.mana) {
+                this.manaRanger = (this.game_state.party_data.Jenna.properties.stats.mana * 100) / this.game_state.PlayerMenuItem2.manaMax;
                 this.game_state.PlayerMenuItem2.player_unit_mana.setPercent(this.manaRanger);
             }
             break;

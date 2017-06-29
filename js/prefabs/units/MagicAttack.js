@@ -21,7 +21,7 @@ RPG.MagicAttack.prototype.hit = function (target) {
     });
 
     switch(this.game_state.current_unit.name) {
-        case "fighter":
+        case "Isaac":
 
             this.game_state.allow_attack = false;
             this.AttackAnimation = this.game_state.current_unit.animations.play("MagicAttack");
@@ -42,7 +42,7 @@ RPG.MagicAttack.prototype.hit = function (target) {
            
             break;
 
-        case "mage":
+        case "Sheba":
 
             this.game_state.allow_attack = false;
 
@@ -84,7 +84,7 @@ RPG.MagicAttack.prototype.hit = function (target) {
 
             break;
 
-        case "ranger":
+        case "Jenna":
 
             this.game_state.allow_attack = false;
 
@@ -131,24 +131,24 @@ RPG.MagicAttack.prototype.SendDamage = function (target){
 
     //Set the percentage of mana of the player 
     switch(this.game_state.current_unit.name) {
-        case "fighter":
+        case "Isaac":
 
-            this.game_state.party_data.fighter.properties.stats.mana = this.game_state.current_unit.stats.mana
-            this.manaFighter = (this.game_state.party_data.fighter.properties.stats.mana * 100) / this.game_state.PlayerMenuItem0.manaMax;
+            this.game_state.party_data.Isaac.properties.stats.mana = this.game_state.current_unit.stats.mana
+            this.manaFighter = (this.game_state.party_data.Isaac.properties.stats.mana * 100) / this.game_state.PlayerMenuItem0.manaMax;
             this.game_state.PlayerMenuItem0.player_unit_mana.setPercent(this.manaFighter);
             break;
 
-        case "mage":
+        case "Sheba":
 
-            this.game_state.party_data.mage.properties.stats.mana = this.game_state.current_unit.stats.mana;
-            this.manaMage = (this.game_state.party_data.mage.properties.stats.mana * 100) / this.game_state.PlayerMenuItem1.manaMax;
+            this.game_state.party_data.Sheba.properties.stats.mana = this.game_state.current_unit.stats.mana;
+            this.manaMage = (this.game_state.party_data.Sheba.properties.stats.mana * 100) / this.game_state.PlayerMenuItem1.manaMax;
             this.game_state.PlayerMenuItem1.player_unit_mana.setPercent(this.manaMage); 
             break;
 
-        case "ranger":
+        case "Jenna":
 
-            this.game_state.party_data.ranger.properties.stats.mana = this.game_state.current_unit.stats.mana
-            this.manaRanger = (this.game_state.party_data.ranger.properties.stats.mana * 100) / this.game_state.PlayerMenuItem2.manaMax;
+            this.game_state.party_data.Jenna.properties.stats.mana = this.game_state.current_unit.stats.mana
+            this.manaRanger = (this.game_state.party_data.Jenna.properties.stats.mana * 100) / this.game_state.PlayerMenuItem2.manaMax;
             this.game_state.PlayerMenuItem2.player_unit_mana.setPercent(this.manaRanger);
             break;
     }

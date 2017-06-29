@@ -46,7 +46,7 @@ RPG.TownState.prototype.init = function (level_data, extra_parameters, dialogue_
     
     // if no party data is in the parameters, initialize it with default values
     this.party_data = extra_parameters.party_data || {
-        "fighter": {
+        "Isaac": {
             "type": "player_unit",
             "position": {"x": 550, "y": 80},
             "properties": {
@@ -94,7 +94,7 @@ RPG.TownState.prototype.init = function (level_data, extra_parameters, dialogue_
                 }
             }
         },
-        "mage": {
+        "Sheba": {
             "type": "player_unit",
             "position": {"x": 550, "y": 190},
             "properties": {
@@ -141,7 +141,7 @@ RPG.TownState.prototype.init = function (level_data, extra_parameters, dialogue_
                 }
             }
         },
-        "ranger": {
+        "Jenna": {
             "type": "player_unit",
             "position": {"x": 550, "y": 290},
             "properties": {

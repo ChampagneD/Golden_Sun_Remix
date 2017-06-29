@@ -23,18 +23,18 @@ RPG.menuState.prototype.init = function (level_data, extra_parameters, dialogue_
 
 RPG.menuState.prototype.create = function() {
 
-    var style = { font: "65px Golden_Sun_Font", fill: "black"};
+    var style = { font: "18px Golden_Sun_Font", fill: "black", align: "center"};
 
     game.stage.backgroundColor = '#ffffff';
 
-    var button_play = game.add.button(100, 150-40, 'button', this.start, this, 2, 0, 1);
+    var button_play = game.add.button(310, 150-40, 'button', this.start, this, 2, 0, 1);
     button_play.anchor.set(0.5);
-    var button_options = game.add.button(100, 200-40, 'button', this.start, this, 5, 3, 4);
+    var button_options = game.add.button(310, 200-40, 'button', this.start, this, 5, 3, 4);
     button_options.anchor.set(0.5);
-    var button_credit = game.add.button(100, 250-40, 'button', this.start, this, 8, 6, 7);
+    var button_credit = game.add.button(310, 250-40, 'button', this.start, this, 8, 6, 7);
     button_credit.anchor.set(0.5);
 
-    this.text = new Text(this, this.game, 500, 200, "Move with ZQSD talk with E and chose combat action with SPACEBAR", style);
+    this.text = this.game.add.text(100, 280, "Move with ZQSD \ntalk with E and\nchoose combat action with SPACEBAR", style);
 
    };
 

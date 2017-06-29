@@ -36,6 +36,7 @@ li{
   height: 50px;
   display: inline-block;
   margin-bottom: 2%;
+  margin-right: 50%;
   background-image: url(../assets/images/HUD/hudgraph.png);
   background-repeat: no-repeat;
   background-position: 50% 0;
@@ -46,6 +47,7 @@ ul{
   list-style-type: none;
   text-align: center;
   margin-right: 10%;
+  width: 90%;
 }
 
 p{
@@ -56,5 +58,5 @@ p{
   background-image: url(../assets/images/HUD/hudgraph.png);
   background-repeat: no-repeat;
   background-position: 50% 0;
-  background-size: 90% 100%;
+  background-size: 100% 100%;
 }

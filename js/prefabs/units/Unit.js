@@ -6,7 +6,7 @@ RPG.Unit = function (game_state, name, position, properties) {
     RPG.Prefab.call(this, game_state, name, position, properties);
 
     switch(name) {
-        case "fighter":
+        case "Isaac":
             this.PhysicalAttackAnimation = this.animations.add("PhysicalAttack", [6, 8], 3, false);
             this.MagicalAttackAnimation = this.animations.add("MagicAttack", [12, 14, 16], 3, false);
 
@@ -23,7 +23,7 @@ RPG.Unit = function (game_state, name, position, properties) {
             this.MagicalAttackAnimation.onComplete.add(this.resetAnimation, this);
             break;
 
-        case "mage":
+        case "Sheba":
             this.PhysicalAttackAnimation = this.animations.add("PhysicalAttack", [12,14], 3, false);
             this.MagicalAttackAnimation = this.animations.add("MagicAttack", [6, 8, 10], 3, false);
 
@@ -40,7 +40,7 @@ RPG.Unit = function (game_state, name, position, properties) {
             this.MagicalAttackAnimation.onComplete.add(this.resetAnimation, this);
             break;
 
-        case "ranger":
+        case "Jenna":
             this.PhysicalAttackAnimation = this.animations.add("PhysicalAttack", [6, 8], 3, false);
             this.MagicalAttackAnimation = this.animations.add("MagicAttack", [10, 12, 14], 2, false);
 
@@ -90,19 +90,19 @@ RPG.Unit.prototype.receive_damage = function (damage) {
 
     //Set the percentage of hp of the player 
     switch(this.name) {
-        case "fighter":
+        case "Isaac":
             this.damageFighter = (this.game_state.damageFighter * 100) / this.game_state.PlayerMenuItem0.healthMax;
             this.damageFighter = 100 - this.damageFighter;
             this.game_state.PlayerMenuItem0.player_unit_health.setPercent(this.damageFighter); 
             break;
 
-        case "mage":
+        case "Sheba":
             this.damageMage = (this.game_state.damageMage * 100) / this.game_state.PlayerMenuItem1.healthMax;
             this.damageMage = 100 - this.damageMage;
             this.game_state.PlayerMenuItem1.player_unit_health.setPercent(this.damageMage); 
             break;
 
-        case "ranger":
+        case "Jenna":
             this.damageRanger = (this.game_state.damageRanger * 100) / this.game_state.PlayerMenuItem2.healthMax;
             this.damageRanger = 100 - this.damageRanger;
             this.game_state.PlayerMenuItem2.player_unit_health.setPercent(this.damageRanger);
@@ -115,17 +115,17 @@ RPG.Unit.prototype.receive_damage = function (damage) {
         this.stats.health = 0;
 
         switch(this.name) {
-            case "fighter":
+            case "Isaac":
                 this.game_state.PlayerMenuItem0.player_unit_health.kill();
                 this.game_state.PlayerMenuItem0.player_unit_mana.kill();
                 break;
 
-            case "mage":
+            case "Sheba":
                 this.game_state.PlayerMenuItem1.player_unit_health.kill();
                 this.game_state.PlayerMenuItem1.player_unit_mana.kill();
                 break;
 
-            case "ranger":
+            case "Jenna":
                 this.game_state.PlayerMenuItem2.player_unit_health.kill();
                 this.game_state.PlayerMenuItem2.player_unit_mana.kill();
                 break;

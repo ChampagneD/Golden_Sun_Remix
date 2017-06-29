@@ -20,7 +20,7 @@ RPG.DjinnAttack.prototype.hit = function (target) {
     });
 
     switch(this.game_state.current_unit.name) {
-        case "fighter":
+        case "Isaac":
 
             this.game_state.allow_attack = false;
 
@@ -49,7 +49,7 @@ RPG.DjinnAttack.prototype.hit = function (target) {
            
             break;
 
-        case "mage":
+        case "Sheba":
 
             this.game_state.allow_attack = false;
             
@@ -99,7 +99,7 @@ RPG.DjinnAttack.prototype.hit = function (target) {
 
             break;
 
-        case "ranger":
+        case "Jenna":
 
             this.game_state.allow_attack = false;
 

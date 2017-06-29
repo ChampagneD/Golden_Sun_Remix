@@ -195,9 +195,9 @@ RPG.Player.prototype.InventoryMenu = function(){
         action_index = 0;
 
         player_menu_character = [   
-                                    {text: "Fighter", item_constructor: RPG.MenuItem.prototype.constructor},
-                                    {text: "Mage", item_constructor: RPG.MenuItem.prototype.constructor},
-                                    {text: "Ranger", item_constructor: RPG.MenuItem.prototype.constructor},
+                                    {text: "Isaac", item_constructor: RPG.MenuItem.prototype.constructor},
+                                    {text: "Sheba", item_constructor: RPG.MenuItem.prototype.constructor},
+                                    {text: "Jenna", item_constructor: RPG.MenuItem.prototype.constructor},
                                     {text: "Djinns", item_constructor: RPG.MenuItem.prototype.constructor},
                                     {text: "items", item_constructor: RPG.MenuItem.prototype.constructor}
                                 ];

@@ -35,7 +35,7 @@ RPG.PhysicalAttack.prototype.hit = function (target) {
     }
 
     switch(this.game_state.current_unit.name) {
-        case "fighter":
+        case "Isaac":
 
             this.game_state.allow_attack = false;
 
@@ -44,16 +44,17 @@ RPG.PhysicalAttack.prototype.hit = function (target) {
 
             this.AttackAnimation = this.game_state.current_unit.animations.play("PhysicalAttack");
 
-        case "mage":
+        case "Sheba":
 
             this.game_state.allow_attack = false;
 
             this.game_state.current_unit.body.moveTo(450, 200, Phaser.ANGLE_LEFT);
+            this.game_state.current_unit.body.onMoveComplete.addOnce(moveCompletePlayer, this);
 
             this.AttackAnimation = this.game_state.current_unit.animations.play("PhysicalAttack");
             break;
 
-        case "ranger":
+        case "Jenna":
 
             this.game_state.allow_attack = false;
 
@@ -73,15 +74,15 @@ RPG.PhysicalAttack.prototype.hit = function (target) {
     }
 
     switch(target.name) {
-        case "fighter":
+        case "Isaac":
             this.game_state.damageFighter += damage;
             break;
 
-        case "mage":
+        case "Sheba":
             this.game_state.damageMage += damage;
             break;
 
-        case "ranger":
+        case "Jenna":
             this.game_state.damageRanger += damage;
             break;
         

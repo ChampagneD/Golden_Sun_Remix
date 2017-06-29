@@ -1,6 +1,7 @@
 [
 	{
 		"txt": "Hi hero",
+		"id": 0,
 		"choice": [
             { "txt": "Hi plebeian", "id": 1},
             { "txt": "Hi ma'am", "id": 2},
@@ -9,6 +10,7 @@
 	},
 	{
 		"txt": "So you're this sort of hero hmm ?",
+		"id": 1,
 		"choice": [
             { "txt": "Of course I am !", "id": 3},
             { "txt": "I'm the kind of hero who save the world", "id": 4},
@@ -17,6 +19,7 @@
 	},
 	{
 		"txt": "You're so kind hero, How are you ?",
+		"id": 2,
 		"choice": [
             { "txt": "I'm good thanks ma'am", "id": false},
             { "txt": "I'm sorry but I got to go miss", "id": false}
@@ -24,14 +27,31 @@
 	},
 	{
 		"txt": "I am please that you are hero !",
+		"id": 3,
 		"choice": [
             { "txt": "thanks ma'am", "id": false}
         ]
 	},
 	{
 		"txt": "And you're the kind to forget your education kid !",
+		"id": 4,
 		"choice": [
             { "txt": "Lalalalal I don't hear you I need to save the world", "id": false}
+        ]
+	},
+	{
+		"txt": "Oh Isaac ! I got something to ask you !",
+		"id": 5,
+		"choice": [
+            { "txt": "Huh ?", "id": 6}
+        ]
+	},
+	{
+		"txt": "Well, hmm, there are many monsters around the city these times, can you kill them ?",
+		"id": 6,
+		"choice": [
+            { "txt": "Yep for sure !", "id": false},
+            { "txt": "I'm sorry I got something helse to do :(", "id": false}
         ]
 	}
 ]

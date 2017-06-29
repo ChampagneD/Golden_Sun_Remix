@@ -42,13 +42,13 @@ RPG.WorldState.prototype.init = function (level_data, extra_parameters, dialogue
     
     // if no party data is in the parameters, initialize it with default values
     this.party_data = extra_parameters.party_data || {
-        "fighter": {
+        "Isaac": {
             "type": "player_unit",
             "position": {"x": 550, "y": 80},
             "properties": {
                 "texture": "male_fighter_spritesheet",
                 "group": "player_units",
-                "frame": 9,
+                "frame": 0,
                 "stats": {
                     "attack": 20,
                     "magic_attack": 5,
@@ -62,26 +62,41 @@ RPG.WorldState.prototype.init = function (level_data, extra_parameters, dialogue
                     "current_level": 0
                 },
                 "spells": {
-                    "destruction_aura": {
-                        "text": "destruction\naura",
-                        "MANA_COST": 30,
-                        "damage": 50
-                    },
-                    "battle_aura": {
-                        "text": "battle\naura",
+                    "DemonFire": {
+                        "name": "DemonFire",
+                        "text": "DemonFire",
                         "MANA_COST": 15,
                         "damage": 20
+                    },
+                    "Frost": {
+                        "name": "Frost",
+                        "text": "Frost",
+                        "MANA_COST": 15,
+                        "damage": 20
+                    },
+                    "Acheron": {
+                        "name": "Acheron",
+                        "text": "Acheron's Grief",
+                        "MANA_COST": 15,
+                        "damage": 20
+                    }
+                },
+                "djinns": {
+                    "Jupiter": {
+                        "name": "Jupiter",
+                        "text": "Jupiter",
+                        "damage": 30
                     }
                 }
             }
         },
-        "mage": {
+        "Sheba": {
             "type": "player_unit",
             "position": {"x": 550, "y": 190},
             "properties": {
                 "texture": "female_mage_spritesheet",
                 "group": "player_units",
-                "frame": 9,
+                "frame": 0,
                 "stats": {
                     "attack": 5,
                     "magic_attack": 20,
@@ -95,26 +110,40 @@ RPG.WorldState.prototype.init = function (level_data, extra_parameters, dialogue
                     "current_level": 0
                 },
                 "spells": {
-                    "destruction_aura1": {
-                        "text": "destruction\naura1",
+                    "Meteor": {
+                        "name": "Meteor",
+                        "text": "Meteor",
                         "MANA_COST": 30,
                         "damage": 50
                     },
-                    "battle_aura1": {
-                        "text": "battle\naura1",
+                    "Volcano": {
+                        "name": "Volcano",
+                        "text": "Volcano",
+                        "MANA_COST": 15,
+                        "damage": 20
+                    },
+                    "Purgatory": {
+                        "name": "Purgatory",
+                        "text": "Purgatory",
+                        "MANA_COST": 15,
+                        "damage": 20
+                    },
+                    "EarthForce": {
+                        "name": "EarthForce",
+                        "text": "Earth Force",
                         "MANA_COST": 15,
                         "damage": 20
                     }
                 }
             }
         },
-        "ranger": {
+        "Jenna": {
             "type": "player_unit",
             "position": {"x": 550, "y": 290},
             "properties": {
                 "texture": "female_ranger_spritesheet",
                 "group": "player_units",
-                "frame": 9,
+                "frame": 0,
                 "stats": {
                     "attack": 10,
                     "magic_attack": 10,
@@ -128,14 +157,15 @@ RPG.WorldState.prototype.init = function (level_data, extra_parameters, dialogue
                     "current_level": 0
                 },
                 "spells": {
-                    "destruction_aura2": {
-                        "name": "meteor",
-                        "text": "destruction\naura2",
-                        "MANA_COST": 30,
-                        "damage": 50
+                    "DemonFire": {
+                        "name": "DemonFire",
+                        "text": "DemonFire",
+                        "MANA_COST": 15,
+                        "damage": 20
                     },
-                    "battle_aura2": {
-                        "text": "battle\naura2",
+                    "Pyroclasm": {
+                        "name": "Pyroclasm",
+                        "text": "PyroClasm",
                         "MANA_COST": 15,
                         "damage": 20
                     }
@@ -143,7 +173,6 @@ RPG.WorldState.prototype.init = function (level_data, extra_parameters, dialogue
             }
         }
     };
-    
     // save inventory from the BattleState, if it exists
     this.inventory = extra_parameters.inventory;
     

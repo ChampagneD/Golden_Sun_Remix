@@ -11,17 +11,17 @@ RPG.ActionMessage = function (game_state, name, position, properties) {
     this.message_text.anchor.setTo(0.5);
 
     switch(this.game_state.current_unit.name) {
-        case "fighter":
+        case "Isaac":
 
             this.game_state.allow_attack = false;
             break;
 
-        case "mage":
+        case "Sheba":
 
             this.game_state.allow_attack = false; 
             break;
 
-        case "ranger":
+        case "Jenna":
 
             this.game_state.allow_attack = false;
             break;
