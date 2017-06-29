@@ -5,10 +5,27 @@ RPG.ActionMessage = function (game_state, name, position, properties) {
     RPG.Prefab.call(this, game_state, name, position, properties);
     
     this.anchor.setTo(0.5);
-    
+
     // create message text
     this.message_text = new RPG.TextPrefab(this.game_state, this.name + "_message", position, {group: "hud", text: properties.message, style: Object.create(this.game_state.TEXT_STYLE)});
     this.message_text.anchor.setTo(0.5);
+
+    switch(this.game_state.current_unit.name) {
+        case "Isaac":
+
+            this.game_state.allow_attack = false;
+            break;
+
+        case "Sheba":
+
+            this.game_state.allow_attack = false; 
+            break;
+
+        case "Jenna":
+
+            this.game_state.allow_attack = false;
+            break;
+    }
     
     // start timer to destroy the message
     this.kill_timer = this.game_state.game.time.create();

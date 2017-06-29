@@ -31,6 +31,10 @@
             {
              "collision":"true"
             },
+         "propertytypes":
+            {
+             "collision":"string"
+            },
          "type":"tilelayer",
          "visible":true,
          "width":20,
@@ -46,6 +50,10 @@
             {
              "collision":"true"
             },
+         "propertytypes":
+            {
+             "collision":"string"
+            },
          "type":"tilelayer",
          "visible":true,
          "width":20,
@@ -53,115 +61,98 @@
          "y":0
         }, 
         {
-         "height":20,
+         "draworder":"topdown",
          "name":"objects",
          "objects":[
                 {
                  "gid":118,
-                 "height":0,
-                 "name":"player",
+                 "height":32,
+                 "id":1,
+                 "name":"playerTown",
                  "properties":
                     {
                      "group":"players",
                      "texture":"male_fighter_spritesheet",
                      "walking_speed":"100"
                     },
-                 "type":"player",
+                 "propertytypes":
+                    {
+                     "group":"string",
+                     "texture":"string",
+                     "walking_speed":"string"
+                    },
+                 "rotation":0,
+                 "type":"playerTown",
                  "visible":true,
-                 "width":0,
+                 "width":24,
                  "x":224,
                  "y":240
                 }, 
                 {
-                 "gid":71,
-                 "height":0,
-                 "name":"enemy_spawner0",
+                 "gid":47,
+                 "height":16,
+                 "id":5,
+                 "name":"goal",
                  "properties":
                     {
-                     "group":"enemy_spawners",
-                     "texture":"enemy_spawner_image"
+                     "State":"WorldState",
+                     "group":"goals",
+                     "texture":"goal_image",
+                     "town":"assets\/levels\/level1.json"
                     },
-                 "type":"enemy_spawner",
-                 "visible":true,
-                 "width":0,
-                 "x":160,
-                 "y":288
-                }, 
-                {
-                 "gid":71,
-                 "height":0,
-                 "name":"enemy_spawner1",
-                 "properties":
+                 "propertytypes":
                     {
-                     "group":"enemy_spawners",
-                     "texture":"enemy_spawner_image"
+                     "State":"string",
+                     "group":"string",
+                     "texture":"string",
+                     "town":"string"
                     },
-                 "type":"enemy_spawner",
+                 "rotation":0,
+                 "type":"goal",
                  "visible":true,
-                 "width":0,
-                 "x":48,
-                 "y":80
-                }, 
-                {
-                 "gid":71,
-                 "height":0,
-                 "name":"enemy_spawner2",
-                 "properties":
-                    {
-                     "group":"enemy_spawners",
-                     "texture":"enemy_spawner_image"
-                    },
-                 "type":"enemy_spawner",
-                 "visible":true,
-                 "width":0,
-                 "x":224,
-                 "y":96
+                 "width":16,
+                 "x":128,
+                 "y":18
                 }],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
-         "width":20,
          "x":0,
          "y":0
         }],
+ "nextobjectid":6,
  "orientation":"orthogonal",
- "properties":
-    {
-
-    },
+ "renderorder":"right-down",
  "tileheight":16,
  "tilesets":[
         {
+         "columns":10,
          "firstgid":1,
          "image":"..\/images\/open_tileset.png",
          "imageheight":180,
          "imagewidth":160,
          "margin":0,
          "name":"map_tileset",
-         "properties":
-            {
-
-            },
          "spacing":0,
+         "tilecount":110,
          "tileheight":16,
          "tilewidth":16
         }, 
         {
+         "columns":3,
          "firstgid":111,
          "image":"..\/images\/characters\/fighter_m.png",
          "imageheight":128,
          "imagewidth":72,
          "margin":0,
          "name":"fighter_m",
-         "properties":
-            {
-
-            },
          "spacing":0,
+         "tilecount":12,
          "tileheight":32,
          "tilewidth":24
         }],
  "tilewidth":16,
- "version":1,
+ "type":"map",
+ "version":"1.0.0",
  "width":20
 }

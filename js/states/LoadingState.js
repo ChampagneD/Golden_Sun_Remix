@@ -8,11 +8,13 @@ RPG.LoadingState = function () {
 RPG.LoadingState.prototype = Object.create(Phaser.State.prototype);
 RPG.LoadingState.prototype.constructor = RPG.LoadingState;
 
-RPG.LoadingState.prototype.init = function (level_data, next_state, extra_parameters) {
+RPG.LoadingState.prototype.init = function (level_data, next_state, extra_parameters, dialogue_data, dialogue_file) {
     "use strict";
     this.level_data = level_data;
     this.next_state = next_state;
     this.extra_parameters = extra_parameters;
+    this.dialogue_data = dialogue_data;
+    this.dialogue_file = dialogue_file;
 };
 
 RPG.LoadingState.prototype.preload = function () {
@@ -32,12 +34,20 @@ RPG.LoadingState.prototype.preload = function () {
             case "tilemap":
                 this.load.tilemap(asset_key, asset.source, null, Phaser.Tilemap.TILED_JSON);
                 break;
+            case "audio":
+                this.load.audio(asset_key, asset.source);
+                break;
             }
+            
         }
     }
+
+    //menu assets
+    this.load.spritesheet('button', 'assets/images/Menu/menu_Buttons.png', 190, 49);
+    this.load.image('hero', 'assets/images/Menu/hero.png');
 };
 
 RPG.LoadingState.prototype.create = function () {
     "use strict";
-    this.game.state.start(this.next_state, true, false, this.level_data, this.extra_parameters);
+    this.game.state.start(this.next_state, true, false, this.level_data, this.extra_parameters, this.dialogue_data, this.dialogue_file);
 };

@@ -2,14 +2,37 @@
     "assets": {
         "rectangle_image": {"type": "image", "source": "assets/images/rectangle.png"},
         "grass_tile_image": {"type": "image", "source": "assets/images/grass_tile.png"},
-        
-        "male_fighter_spritesheet": {"type": "spritesheet", "source": "assets/images/characters/fighter_m.png", "frame_width": 24, "frame_height": 32},
-        "female_mage_spritesheet": {"type": "spritesheet", "source": "assets/images/characters/mage_f.png", "frame_width": 24, "frame_height": 32},
-        "female_ranger_spritesheet": {"type": "spritesheet", "source": "assets/images/characters/ranger_f.png", "frame_width": 24, "frame_height": 32},
-        
-        "bat_spritesheet": {"type": "spritesheet", "source": "assets/images/monsters/bat.png", "frame_width": 128, "frame_height": 128},
-        "scorpion_spritesheet": {"type": "spritesheet", "source": "assets/images/monsters/scorpion.png", "frame_width": 64, "frame_height": 64},
-        "lizard_spritesheet": {"type": "spritesheet", "source": "assets/images/monsters/stygian_lizard.png", "frame_width": 192, "frame_height": 192}
+
+        "Battle_Theme": {"type": "audio", "source": "assets/SFX/Battle_Theme.mp3"},
+        "Menu_Move": {"type": "audio", "source": "assets/SFX/MenuMove.wav"},
+        "Menu_Negative": {"type": "audio", "source": "assets/SFX/MenuNegative.wav"},
+        "Menu_Positive": {"type": "audio", "source": "assets/SFX/MenuPositive.wav"},
+
+        "Hit": {"type": "audio", "source": "assets/SFX/Hit.wav"},
+        "Damage": {"type": "audio", "source": "assets/SFX/Damage.wav"},
+        "Heal": {"type": "audio", "source": "assets/SFX/Heal.wav"},
+
+        "male_fighter_spritesheet": {"type": "spritesheet", "source": "assets/images/Isaac_Battle.png", "frame_width": 64, "frame_height": 64},
+        "female_mage_spritesheet": {"type": "spritesheet", "source": "assets/images/Sheba_Battle.png", "frame_width": 64, "frame_height": 64},
+        "female_ranger_spritesheet": {"type": "spritesheet", "source": "assets/images/Jenna_Battle.png", "frame_width": 64, "frame_height": 64},
+
+        "Meteor": {"type": "spritesheet", "source": "assets/images/spell_animations/MeteorSpell.png", "frame_width": 256, "frame_height": 256, "frames": 191},
+        "DemonFire": {"type": "spritesheet", "source": "assets/images/spell_animations/DemonFire.png", "frame_width": 128, "frame_height": 128, "frames": 56},
+        "Pyroclasm": {"type": "spritesheet", "source": "assets/images/spell_animations/Pyroclasm.png", "frame_width": 128, "frame_height": 128, "frames": 86},
+        "Purgatory": {"type": "spritesheet", "source": "assets/images/spell_animations/Purgatory.png", "frame_width": 128, "frame_height": 128, "frames": 52},
+        "Volcano": {"type": "spritesheet", "source": "assets/images/spell_animations/Volcano.png", "frame_width": 128, "frame_height": 128, "frames": 86},
+        "EarthForce": {"type": "spritesheet", "source": "assets/images/spell_animations/EarthForce.png", "frame_width": 128, "frame_height": 128, "frames": 76},
+        "Frost": {"type": "spritesheet", "source": "assets/images/spell_animations/Frost.png", "frame_width": 128, "frame_height": 128, "frames": 123},
+        "Acheron": {"type": "spritesheet", "source": "assets/images/spell_animations/Acheron.png", "frame_width": 128, "frame_height": 128, "frames": 94},
+
+        "Jupiter": {"type": "spritesheet", "source": "assets/images/Djinns/Jupiter_spritesheet.png", "frame_width": 64, "frame_height": 64, "frames": 2},
+
+        "Chimera_spritesheet": {"type": "spritesheet", "source": "assets/images/monsters/Chimera.png", "frame_width": 64, "frame_height": 64, "frame": 0},
+        "Kobold_spritesheet": {"type": "spritesheet", "source": "assets/images/monsters/Kobold.png", "frame_width": 64, "frame_height": 64, "frame": 0},
+        "LizardMan_spritesheet": {"type": "spritesheet", "source": "assets/images/monsters/LizardMan.png", "frame_width": 64, "frame_height": 64, "frame": 0},
+        "Orc_spritesheet": {"type": "spritesheet", "source": "assets/images/monsters/Orc.png", "frame_width": 64, "frame_height": 64, "frame": 0},
+        "Wood_Walker_spritesheet": {"type": "spritesheet", "source": "assets/images/monsters/Wood_Walker.png", "frame_width": 64, "frame_height": 64, "frame": 0},
+        "Serpent_spritesheet": {"type": "spritesheet", "source": "assets/images/monsters/serpent.png", "frame_width": 128, "frame_height": 64, "frames": 7, "frame": 0}
     },
     "groups": [
         "items",
@@ -26,31 +49,40 @@
             "properties": {
                 "texture": "grass_tile_image",
                 "group": "background",
-                "width": 320,
-                "height": 320
+                "width": 640,
+                "height": 480
             }
         },
         "enemy_rectangle": {
             "type": "rectangle",
-            "position": {"x": 0, "y": 200},
+            "position": {"x": 0, "y": 360},
             "properties": {
                 "texture": "rectangle_image",
                 "group": "hud",
-                "scale": {"x": 0.3, "y": 1}
+                "scale": {"x": 0.5, "y": 1}
+            }
+        },
+        "skill_rectangle": {
+            "type": "rectangle",
+            "position": {"x": 160, "y": 360},
+            "properties": {
+                "texture": "rectangle_image",
+                "group": "hud",
+                "scale": {"x": 0.61, "y": 1}
             }
         },
         "action_rectangle": {
             "type": "rectangle",
-            "position": {"x": 96, "y": 200},
+            "position": {"x": 355, "y": 360},
             "properties": {
                 "texture": "rectangle_image",
                 "group": "hud",
-                "scale": {"x": 0.3, "y": 1}
+                "scale": {"x": 0.5, "y": 1}
             }
         },
         "player_rectangle": {
             "type": "rectangle",
-            "position": {"x": 192, "y": 200},
+            "position": {"x": 512, "y": 360},
             "properties": {
                 "texture": "rectangle_image",
                 "group": "hud",

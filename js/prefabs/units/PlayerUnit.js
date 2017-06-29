@@ -13,6 +13,7 @@ RPG.PlayerUnit.prototype.constructor = RPG.PlayerUnit;
 RPG.PlayerUnit.prototype.act = function () {
     "use strict";
     var unit_index, player_units_menu_items;
+    this.game_state.allow_attack = true;
     // search for the index of this unit in the player_units_menu
     unit_index = this.game_state.prefabs.player_units_menu.find_item_index(this.name);
     this.game_state.prefabs.player_units_menu.move_selection(unit_index);

@@ -34,7 +34,7 @@ RPG.Inventory.prototype.collect_item = function (item_object) {
     "use strict";
     var item;
     // create item prefab
-    item = new this.item_classes[item_object.type](this.game_state, item_object.type + this.items.length, {x: 0, y: 0}, item_object.properties);
+    item = new this.item_classes[item_object.type](this.game_state, item_object.type +" "+this.items.length, {x: 0, y: 0}, item_object.properties);
     this.items.push(item);
 };
 

@@ -2,6 +2,7 @@ var RPG = RPG || {};
 
 RPG.Prefab = function (game_state, name, position, properties) {
     "use strict";
+
     Phaser.Sprite.call(this, game_state.game, position.x, position.y, properties.texture);
     
     this.game_state = game_state;
@@ -16,6 +17,8 @@ RPG.Prefab = function (game_state, name, position, properties) {
     }
     
     this.game_state.prefabs[name] = this;
+
+    game_state.game.physics.arcade.enable(this);
 };
 
 RPG.Prefab.prototype = Object.create(Phaser.Sprite.prototype);

@@ -19,3 +19,20 @@ RPG.EnemyMenuItem.prototype.select = function () {
     this.game_state.prefabs.enemy_units_menu.disable();
     this.game_state.prefabs.player_units_menu.disable();
 };
+
+RPG.EnemyMenuItem.prototype.unSelect = function () {
+    this.game_state.prefabs.enemy_units_menu.disable();
+    
+    if (this.game_state.prefabs.spell_menu) {
+        this.game_state.prefabs.spell_menu.menu_items.forEach(function(items){
+            items.kill();
+        });
+    }
+    if (this.game_state.prefabs.djinn_menu) {
+        this.game_state.prefabs.djinn_menu.menu_items.forEach(function(items){
+            items.kill();
+        });
+    }
+
+    this.game_state.prefabs.actions_menu.enable();
+}
